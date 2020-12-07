@@ -1,0 +1,33 @@
+#container {
+    padding: 10%;
+}
+
+#container-card {
+    padding: 5%;
+    border: 5px solid rgb(240, 237, 237);
+    background-color: grey;
+}
+
+p {
+    padding: 5%;
+    color: white
+}
+
+.contact-card {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    display: flex;
+}
+
+.contact-view {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    display: flex;
+    border: 2px solid rgb(240, 237, 237);
+}
+
+.nav-link {
+    text-decoration: black;
+}

@@ -1,0 +1,30 @@
+#container {
+    padding: 10%;
+}
+
+#container-card {
+    padding: 5%;
+    border: 5px solid rgb(240, 237, 237);
+    background-color: grey;
+}
+
+p {
+    padding: 1%;
+    color: white
+}
+
+.center {
+    text-align: center;
+}
+
+.about-view {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    display: block;
+    border: 2px solid rgb(240, 237, 237);
+}
+
+.nav-link {
+    text-decoration: black;
+}

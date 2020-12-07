@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // apiUrl: 'localhost:3000/api'
+  // apiUrl: 'https://shop-butique.firebaseio.com'
 };
 
 /*
@@ -14,3 +16,18 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
+
+// export const environment = {
+//   production: false,
+//   firebase: {
+//   apiKey: "AIzaSyAzYzR3kbMLdQBIc_pLz3npNvyPuRgfHmg",
+//   authDomain: "shop-butique.firebaseapp.com",
+//   databaseURL: "https://shop-butique.firebaseio.com",
+//   projectId: "shop-butique",
+//   storageBucket: "shop-butique.appspot.com",
+//   messagingSenderId: "415829684227",
+//   appId: "1:415829684227:web:e4b36ddb319a839c101e36"
+// };
+//auth with email and password - created uid

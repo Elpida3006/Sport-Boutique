@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="menu">
+            <a class="navbar-brand" routerLink="/cover">Welcome in Sport Butique</a>
+        </div>
+
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
+                    <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <!-- <button class="nav-link" type="button" href="#">Home</button> -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about">About</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLogged">
+                    <a class="nav-link" routerLink="/user/login">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogged">
+                    <a class="nav-link" (click)="logoutHandler()">Logout</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLogged">
+                    <a class="nav-link" routerLink="/user/register">Register</a>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

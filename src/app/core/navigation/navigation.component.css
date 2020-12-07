@@ -1,0 +1,262 @@
+/* .navbar-expand-lg {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    color: white
+} */
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+a.navbar-brand {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 20px;
+    margin: 5%;
+    color: white;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: 'Parisienne', cursive;
+    font-size: 28px;
+    text-align: center;
+    border: rgb(141, 139, 139) solid 1px;
+    border-radius: 5px;
+    /* background: rgb(33, 36, 37); */
+    background: linear-gradient(0deg, rgb(39, 40, 41) 0%, rgb(12, 14, 15) 35%, rgb(202, 218, 221) 100%);
+}
+
+li.nav-item {
+    padding: 1.5%;
+    padding-right: 1%;
+    margin-left: 1%;
+    background: linear-gradient(0deg, rgb(39, 40, 41) 0%, rgb(12, 14, 15) 35%, rgb(202, 218, 221) 100%);
+}
+
+a.nav-link {
+    color: rgb(199, 195, 195);
+    box-shadow: white;
+    border-radius: 5%;
+    border: rgb(141, 139, 139) solid 1px;
+    /* background: rgb(33, 36, 37); */
+    background: linear-gradient(0deg, rgb(39, 40, 41) 0%, rgb(12, 14, 15) 35%, rgb(202, 218, 221) 100%);
+    margin-right: 5%;
+    padding: 10px;
+}
+
+#menu {
+    color: orange;
+    padding: 0;
+    display: flex;
+    width: 40%;
+    text-align: center;
+}
+
+div#menu.collapse.navbar-collapse {
+    width: 60%;
+    margin-left: 50px
+}
+
+ul.navbar-nav.ml-auto {
+    width: 100%;
+    margin-left: 300px
+}
+
+#navbarResponsive {
+    color: white;
+    padding: 0px;
+    text-align: justify;
+    display: flex;
+    width: 100%;
+    padding-left: 0%;
+}
+
+ul {
+    display: flex;
+}
+
+
+/* article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+section {
+    display: block;
+}
+
+navbar-nav ml-auto {
+    min-width: 28rem;
+    max-width: 28rem;
+} */
+
+li {
+    display: flex;
+    text-align: right;
+}
+
+
+/* .navbar-dark .navbar-nav .nav-link {
+    color: white;
+    /* color: rgba(255, 255, 255, .5); */
+
+
+/* display: inline;
+
+}
+*/
+
+
+/* min-width: 28rem;
+    max-width: 28rem; */
+
+
+/* width: 50px;
+    height: 50px; */
+
+
+/* } */
+
+
+/* .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+    display: flex;
+    width: 50%;
+} */
+
+
+/* .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+    display: flex;
+} */
+
+
+/* .nav-link {
+    color: white;
+    padding: .5rem 1rem;
+    display: flex;
+}
+a {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    display: flex;
+    cursor: pointer;
+} */
+
+
+/* .navbar-brand {
+    font-size: large;
+    display: flex;
+    width: 30%;
+}
+ul {
+    align-items: center;
+    display: flex;
+}
+.container {
+    width: 1200px;
+    flex-direction: row;
+} */
+
+
+/* header  */
+
+
+/* header {
+    background: rgb(0, 128, 182);
+    background: linear-gradient(0deg, rgba(0, 128, 182, 1) 0%, rgba(0, 128, 182, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+header ul {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+}
+
+header ul span {
+    color: white;
+    padding: 0.5em;
+}
+
+.mini-navbar ul {
+    border: 1px solid #00d4ff;
+    border-radius: 0.3em;
+    padding-left: 0;
+    width: 100%;
+}
+
+header li {
+    list-style: none;
+    margin: .35em;
+    padding: 0 .95em;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+nav {
+    border-top: 1px solid #00acf4;
+}
+
+.logo {
+    font-size: 1.3em;
+    color: white;
+    padding-bottom: 0;
+}
+
+.logo-wrap {
+    font-family: 'Parisienne', cursive;
+    letter-spacing: .5em;
+    margin: 0.5em 0;
+}
+
+.mini-navbar-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+}
+
+
+/* mini-navbar */
+
+
+/* .mini-navbar ul {
+    background-color: #6ba1b8;
+    border-radius: 5px;
+} */
+
+
+/* .mini-navbar ul li+li {
+    border-left: 1px solid lightgrey;
+    padding-left: .5em;
+} */

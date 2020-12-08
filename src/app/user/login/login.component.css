@@ -1,33 +1,29 @@
-/*login register forms  */
+/*login  forms  */
 
 fieldset {
     padding: 10%;
     color: transparent;
 }
 
-form.login,
-form.register {
+form.login {
     width: 40%;
     margin: 2em auto 0;
     text-align: center;
 }
 
-.login fieldset,
-.register fieldset {
+.login fieldset {
     border-radius: 0.3em;
     padding: 0.8em;
     background-color: #ffffff;
 }
 
-.login h2,
-.register h2 {
+.login h2 {
     padding-top: 0;
     border-bottom: none;
     color: white
 }
 
-.login p,
-.register p {
+.login p {
     padding-bottom: 0;
     padding-top: 1.5rem;
 }
@@ -36,8 +32,7 @@ input:not(.input-error) {
     border-left: 0.3em solid green;
 }
 
-.login input,
-.register input {
+.login input {
     flex: 0 1 100%;
     border-right: 1px solid;
     border-top: 1px solid;
@@ -47,13 +42,11 @@ input:not(.input-error) {
     border-bottom-right-radius: 0.3em;
 }
 
-.login select,
-.register select {
+.login select {
     border-color: black;
 }
 
-.login button,
-.register button {
+.login button {
     color: white;
     border: none;
     border-radius: 0.3em;
@@ -63,8 +56,7 @@ input:not(.input-error) {
     outline: none;
 }
 
-.login i,
-.register i {
+.login i {
     border: 1px solid;
     border-right: none;
     padding: 0.55em;
@@ -73,22 +65,15 @@ input:not(.input-error) {
     background-color: #e9ecef;
 }
 
-.login a,
-.register a {
+.login a {
     color: #007bff;
 }
 
-.login a:hover,
-.register a:hover {
+.login a:hover {
     cursor: pointer;
 }
 
-.register .tel {
-    padding-right: 0.8em;
-}
-
-.login .field,
-.register .field {
+.login .field {
     display: flex;
     padding-bottom: 0;
 }
@@ -109,4 +94,35 @@ p.error {
 
 .input-error {
     border-left: 0.3em solid red;
+}
+
+form.text-center.border.border-light.p-5.rounded {
+    display: block;
+    padding-left: 600px;
+    padding-top: 120px;
+    width: 500px;
+}
+
+a {
+    color: white;
+    display: block;
+    width: 300px;
+    height: 30px;
+}
+
+.mb-4 {
+    color: white;
+    width: 300px;
+    height: 30px;
+}
+
+p {
+    color: rgb(189, 30, 30);
+    width: 300px;
+    height: 30px;
+}
+
+.container {
+    display: flex;
+    padding-bottom: 130px;
 }

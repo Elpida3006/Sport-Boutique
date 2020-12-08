@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+
 // import { emailValidator, rePasswordValidatorFactory } from 'src/app/shared/validators';
 import { UserService } from '../user.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,53 +13,61 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup;
+  error: string;
+  loading = false;
+  action: 'register' ;
 
-  isLoading = false;
+  constructor(
+      private router: Router,
+      private afAuth: AngularFireAuth
+  ) { }
 
-  // constructor(
-  //   private fb: FormBuilder,
-  //   private userService: UserService,
-  //   private router: Router
-  // ) {
-    // const passwordControl = this.fb.control('',
-    //  [Validators.required, Validators.minLength(4)]
-    //  );
-    // this.form = this.fb.group({
-    //   username: ['', 
-    //   // [Validators.required, Validators.minLength(5)]
-    // ],
-      // email: ['', 
-      // [Validators.required, 
-      //   // emailValidator
-      // ]
-    // ],
-  //     tel: [''],
-  //     password: passwordControl,
-  //     rePassword: ['', 
-  //     // [Validators.required, Validators.minLength(5), rePasswordValidatorFactory(passwordControl)]
-  //   ]
-  //   });
-  // }
-
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  // submitHandler(): void {
-  //   const data = this.form.value;
-    // this.isLoading = true;
+  async onSubmit(form: NgForm) {
 
-  //   this.userService.register(data).subscribe({
-  //     next: () => {
-  //       this.isLoading = false;
-  //       this.router.navigate(['/']);
-  //     },
-  //     error: (err) => {
-  //       this.isLoading = false;
-  //       console.error(err);
-  //     }
-  //   });
-  // }
+      this.loading = true;
+      this.error = null;
 
+      const {
+        
+          email,
+          password,
+          rePassword
+        
+      } = form.value;
+
+      let resp;
+
+      try {
+
+          if (this.isSignUp) {
+              resp = await this.afAuth.createUserWithEmailAndPassword(email, password);
+
+              await resp.user.updateProfile(
+                  { displayName: `${email} ${password}` }
+              );
+
+              form.reset();
+          } 
+          const uid = resp.user.uid;
+                    this.router.navigate([`/home`]);
+
+          // this.router.navigate([`/profile/${uid}`]);
+
+      } catch (error) {
+          console.log(error.message);
+          this.error = error.message;
+      }
+
+      this.loading = false;
+  }
+
+ 
+
+  get isSignUp() {
+      return this.action === 'register';
+  }
 }
 

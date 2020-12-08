@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -11,28 +13,56 @@ export class LoginComponent implements OnInit {
 
   isLoading = false;
   errorMessage = '';
+  error: string;
+  loading = false;
+  action: 'login' ;
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private afAuth: AngularFireAuth
   ) { }
 
   ngOnInit(): void {
   }
 
-  submitFormHandler(formValue: { email: string, password: string }): void {
-    // this.isLoading = true;
-    this.errorMessage = '';
-    this.userService.login(formValue).subscribe({
-      next: (data) => {
-        this.isLoading = false;
-        this.router.navigate(['/']);
-      },
-      error: (err) => {
-        this.errorMessage = 'ERROR!';
-        this.isLoading = false;
-      }
-    });
-  }
+  async onSubmit(form: NgForm) {
+
+    this.loading = true;
+    this.error = null;
+
+    const {
+      
+        email,
+        password,
+    
+      
+    } = form.value;
+
+    let resp;
+
+    try {
+
+       
+            resp = await this.afAuth.signInWithEmailAndPassword(email, password);
+        
+
+        const uid = resp.user.uid;
+                  this.router.navigate([`/home`]);
+
+        // this.router.navigate([`/profile/${uid}`]);
+
+    } catch (error) {
+        console.log(error.message);
+        this.error = error.message;
+    }
+
+    this.loading = false;
+}
+
+get isLogin() {
+    return this.action === 'login';
+}
+
 
 }

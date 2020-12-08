@@ -15,6 +15,7 @@ form.register {
 .register h2 {
     padding-top: 0;
     border-bottom: none;
+    color: white;
 }
 
 .register p {
@@ -67,10 +68,6 @@ input:not(.input-error) {
     cursor: pointer;
 }
 
-.register .tel {
-    padding-right: 0.8em;
-}
-
 .register .field {
     display: flex;
     padding-bottom: 0;
@@ -88,4 +85,35 @@ p.error {
 
 .input-error {
     border-left-color: red;
+}
+
+form.text-center.border.border-light.p-5.rounded {
+    display: block;
+    padding-left: 600px;
+    padding-top: 120px;
+    width: 500px;
+}
+
+a {
+    color: white;
+    display: block;
+    width: 300px;
+    height: 30px;
+}
+
+.mb-4 {
+    color: white;
+    width: 300px;
+    height: 30px;
+}
+
+p {
+    color: rgb(189, 30, 30);
+    width: 300px;
+    height: 30px;
+}
+
+.container {
+    display: flex;
+    padding-bottom: 130px;
 }

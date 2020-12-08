@@ -1,75 +1,69 @@
-<!-- <form [formGroup]="form" class="register" (ngSubmit)="submitHandler()"> -->
-<form class="register">
+<div class="container">
 
-    <fieldset>
-        <h2>Registration Form</h2>
+    <!-- Default form register -->
+    <!-- <form class="text-center border border-light p-5 rounded" action="#!" #form="ngForm" (submit)="onSubmit(form)" [class.loading]="loading"> -->
+    <form class="text-center border border-light p-5 rounded">
+        <p class="h4 mb-4">Register Form!</p>
 
-        <!-- username -->
-        <p class="field field-icon">
-            <label for="username"><span><i class="fas fa-user"></i></span></label>
-            <!-- <input [class.input-error]="form.get('username').touched && !!form.get('username').errors" type="text"
-          name="username" id="username" placeholder="Johny" formControlName="username">
-      </p>
-      <p *ngIf="form.get('username').touched && form.get('username').errors?.required" class="error">
-        Username is required!
-      </p>
-      <p *ngIf="form.get('username').touched && form.get('username').errors?.minlength" class="error">
-        Username must be at least 5 characters! -->
-        </p>
+        <div class="form-row mb-4" *ngIf="isSignUp">
 
-        <!-- email -->
+        </div>
         <p class="field field-icon">
             <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-            <!-- <input [class.input-error]="form.get('email').touched && !!form.get('email').errors" type="email" name="email"
-          id="email" placeholder="john.doe@gmail.com" formControlName="email">
-      </p>
-      <p *ngIf="form.get('email').touched && form.get('email').errors?.required" class="error">
-        Email is required!
-      </p>
-      <p *ngIf="form.get('email').touched && form.get('email').errors?.emailValidator" class="error">
-        Email is not valid!
-      </p> -->
 
-            <!-- telephone -->
-            <p class="field field-icon">
-                <label for="tel"><span><i class="fas fa-phone"></i></span></label>
-                <select name="select-tel" id="select-tel" class="tel">
-          <option value="00359">+359</option>
-        </select>
-                <input type="text" name="tel" id="tel" placeholder="885 888 888" formControlName="tel">
-            </p>
 
-            <!-- password -->
-            <p class="field field-icon">
-                <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <!-- <input [class.input-error]="form.get('password').touched && !!form.get('password').errors" type="password"
-          name="password" id="password" placeholder="******" formControlName="password">
-      </p> -->
-                <!-- <p *ngIf="form.get('password').touched && form.get('password').errors?.required" class="error">
-        Password is required!
-      </p>
-      <p *ngIf="form.get('password').touched && form.get('password').errors?.minlength" class="error">
-        Password must be at least 4 characters!
-      </p> -->
+            <!-- E-mail -->
+            <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" ngModel>
+        </p>
+        <!-- Password -->
+        <p class="field field-icon">
+            <label for="password"><span><i class="fas fa-envelope"></i></span></label>
 
-                <!-- rePassword -->
-                <p class="field field-icon">
-                    <label for="rePassword"><span><i class="fas fa-lock"></i></span></label>
-                    <!-- <input [class.input-error]="form.get('rePassword').touched && !!form.get('rePassword').errors" type="password"
-          name="rePassword" id="rePassword" placeholder="******" formControlName="rePassword">
-      </p>
-      <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.required" class="error">Repeat
-        Repeat Password is required!</p>
-      <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.rePasswordValidator" class="error">Repeat
-        Password does not match password!</p> -->
 
-                    <!-- <button [disabled]="isLoading || form.invalid">Create Account</button>
-      <app-loader [isLoading]="isLoading"></app-loader> -->
+            <!-- E-mail -->
+            <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" ngModel>
+        </p>
+        <p class="field field-icon">
+            <label for="password"><span><i class="fas fa-envelope"></i></span></label>
 
-                    <p class="text-center">
-                        Have an account?
-                        <a routerLink="/user/login">Log In</a>
-                    </p>
 
-    </fieldset>
-</form>
+            <!-- E-mail -->
+            <input type="password" name="repassword" id="defaultRegisterFormRePassword" class="form-control mb-4" placeholder="Re-Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" ngModel>
+        </p>
+
+        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4" *ngIf="isSignUp">
+          At least 8 characters and 1 digit
+      </small> {{ error }}
+
+
+        <!-- Sign up button -->
+        <button class="btn btn-info my-4 btn-block" type="submit">
+       REGISTER
+      </button>
+        <span *ngIf="isSignUp">
+        
+          <a class="font-weight-bold" href="#" (click)="action = 'register'">
+              Sign Up
+              <i class="fas fa-sign-in-alt"></i>
+          </a>
+      </span>
+
+
+        <div *ngIf="isSignUp">
+
+            <hr>
+
+            <!-- Terms of service -->
+            <p>By clicking
+                <em>Sign up</em> you agree to our
+                <a>terms of service</a>
+
+        </div>
+        <p class="text-center">
+            Have an account?
+            <a routerLink="/user/login">Log In</a>
+        </p>
+    </form>
+    <!-- Default form register -->
+
+</div>

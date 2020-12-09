@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CreateProductsService } from '../create-products.service';
 
 @Component({
   selector: 'app-clothes',
@@ -6,10 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clothes.component.css']
 })
 export class ClothesComponent implements OnInit {
+  form: FormGroup;
+  brand: string;
+   description: string;
+    model: string; 
+    imageURL: string;
+     size: string;
+  
+  constructor(
+    private router: Router,
+    public createProductService: CreateProductsService,
+    private fb: FormBuilder
+  ) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.form = this.fb.group({   })  
   }
+  createClothes() {
+const {brand, description, model, imageURL, size} = this.form.value;
+
+
+
+this.router.navigate([`products/clothes`])
+  }
+
 
 }

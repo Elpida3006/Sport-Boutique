@@ -25,14 +25,14 @@ import {HttpClientModule} from '@angular/common/http'
 import { CoverComponent } from './cover/cover.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
-import { ClothesComponent } from './createProducts/clothes/clothes.component';
-import { ShoesComponent } from './createProducts/shoes/shoes.component';
+import { CreateProductsModule } from './createProducts/create-products.module';
+import { CreateProductsService } from './createProducts/create-products.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoverComponent, 
-    HomeComponent, ContactComponent, AboutComponent, ClothesComponent, ShoesComponent
+    HomeComponent, ContactComponent, AboutComponent
 
   ],
   imports: [
@@ -46,13 +46,14 @@ import { ShoesComponent } from './createProducts/shoes/shoes.component';
     ProductsModule, 
     UserModule,
     HttpClientModule,
+    CreateProductsModule
   ],
 
   providers: [
     UserService, 
     ProductsService,
     PlatformStorageService, 
-  
+    CreateProductsService
     
   ],
   bootstrap: [AppComponent, NavigationComponent, FooterComponent ],

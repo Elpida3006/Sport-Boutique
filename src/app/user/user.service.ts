@@ -15,7 +15,8 @@ export class UserService {
 
   isLogged = false;
 
-  constructor(private storage: PlatformStorageService) {
+  constructor( private storage: PlatformStorageService) {
+   
     this.isLogged = this.storage.getItem('isLogged');
   }
 
@@ -24,9 +25,13 @@ export class UserService {
       firebase.auth().createUserWithEmailAndPassword(email,password)
       .then(res => {
         resolve(res);
+      console.log('congratulations!!!');
       }, err => rej(err))
      
-    })
+  })
+
+  // doLogin()
+
 } 
 get isRegister() {
     return this.isRegister

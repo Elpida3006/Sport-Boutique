@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import * as firebase from '@firebase/auth/dist/auth';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app'
@@ -31,10 +32,11 @@ export class RegisterComponent implements OnInit {
     this.form = this.fb.group({
       
       email: ["", [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(/[w+]/), Validators.minLength(14)]],
+      password: ['', [Validators.required, Validators.pattern(/[a-zA-Z]+/), Validators.minLength(14)]],
      
     })   
   }
+  //a12345678901234
   onSubmit()
   // onSubmit(form: NgForm)  
   {

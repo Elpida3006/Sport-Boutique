@@ -57,6 +57,16 @@ a {
     margin: 10%;
 }
 
+.admin-group-item {
+    color: rgb(9, 6, 197);
+    text-decoration: none;
+    background-color: rgb(26, 25, 25);
+    display: flex;
+    width: 80%;
+    padding-left: 0.5%;
+    margin: 10%;
+}
+
 .shopProducts {
     padding-top: 100px;
     padding-bottom: 0%;

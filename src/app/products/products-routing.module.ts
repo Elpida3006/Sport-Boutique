@@ -2,6 +2,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccessoryComponent } from './accessory/accessory.component';
 import { ClothesComponent } from './clothes/clothes.component';
 import { ShoesComponent } from './shoes/shoes.component';
+import { Router } from  "@angular/router";
+import { PromotionComponent } from './promotion/promotion.component';
 
 
 const routes: Routes = [
@@ -31,6 +33,14 @@ const routes: Routes = [
         {
             path: 'shoes',
             component: ShoesComponent,
+            data: {
+              isLogged: false,
+              title: ''
+            }
+          },
+          {
+            path: 'promotion',
+            component: PromotionComponent,
             data: {
               isLogged: false,
               title: ''

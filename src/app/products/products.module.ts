@@ -7,11 +7,12 @@ import { HomeComponent } from '../home/home.component';
 import { ProductsService } from './products.service';
 import { ProductsRoutingModule } from './products-routing.module';
 import { RouterModule } from '@angular/router';
+import { PromotionComponent } from './promotion/promotion.component';
 
 
 
 @NgModule({
-  declarations: [AccessoryComponent, ShoesComponent, ClothesComponent],
+  declarations: [AccessoryComponent, ShoesComponent, ClothesComponent, PromotionComponent],
   imports: [
     CommonModule, 
     ProductsRoutingModule,
@@ -24,7 +25,8 @@ ProductsService,
   exports: [
     AccessoryComponent,
     ShoesComponent,
-    ClothesComponent
+    ClothesComponent, 
+    PromotionComponent
   ]
 })
 export class ProductsModule { }

@@ -17,11 +17,14 @@ export class LoginComponent implements OnInit {
   loading = false;
   form: FormGroup;
   action: 'login' ;
+  email: string;
+  password: string;
 
   constructor(
     private router: Router,
     private afAuth: AngularFireAuth,
-    private userService: UserService,
+    public userService: UserService,
+     //it's a our authServise
     private fb: FormBuilder
 
   ) { }
@@ -35,9 +38,15 @@ export class LoginComponent implements OnInit {
     })   
   }
 
-   onSubmit() {
+   login() {
     const {email, password} = this.form.value;
 
+    this.userService.login(email, password)
+     
+    this.email = this.password = '';    
+
+    this.router.navigate([`home`])
+    alert('your  are logged user')
 //     this.loading = true;
 //     this.error = null;
 

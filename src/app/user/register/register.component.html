@@ -2,7 +2,7 @@
 
     <!-- Default form register -->
     <!-- <form class="text-center border border-light p-5 rounded" action="register" #form="ngForm" (submit)="onSubmit(form)" [class.loading]="loading"> -->
-    <form class="text-center border border-light p-5 rounded " [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="text-center border border-light p-5 rounded " [formGroup]="form" (ngSubmit)=" register() ">
         <p class="register">Register Form!</p>
 
         <div class="form-row mb-4">

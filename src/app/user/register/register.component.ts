@@ -29,9 +29,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      //tтова ти е името на контролера който си задала в html
-      //след това правиш и второто поле по същия начин
-      //точно както е написано тук , трябва да е и там, ако има грешка няма да работи
+      
       email: ["", [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.email]],
       password: ['', [Validators.required, Validators.pattern(/[w+]/), Validators.minLength(14)]],
      

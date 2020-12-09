@@ -2,13 +2,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccessoryComponent } from './accessory/accessory.component';
 import { ClothesComponent } from './clothes/clothes.component';
 import { ShoesComponent } from './shoes/shoes.component';
-import { Router } from  "@angular/router";
 import { PromotionComponent } from './promotion/promotion.component';
 
 
 const routes: Routes = [
     {
-      path: 'products',
+      path: 'createProducts',
     //   canActivateChild: [
     //     AuthGuard
     //   ],
@@ -19,7 +18,7 @@ const routes: Routes = [
           data: {
             isLogged: false,
             noNavigation: true,
-            title: 'view accessory'
+            title: 'create accessory'
           },
         },
         {
@@ -27,7 +26,7 @@ const routes: Routes = [
           component: ClothesComponent,
           data: {
             isLogged: false,
-            title: 'view clothes'
+            title: 'create clothes'
           }
         },
         {
@@ -35,7 +34,7 @@ const routes: Routes = [
             component: ShoesComponent,
             data: {
               isLogged: false,
-              title: 'view shoes'
+              title: 'create shoes'
             }
           },
           {
@@ -43,7 +42,7 @@ const routes: Routes = [
             component: PromotionComponent,
             data: {
               isLogged: false,
-              title: 'view promotion'
+              title: 'create promotion'
             }
           },
         
@@ -53,4 +52,4 @@ const routes: Routes = [
   ];
 
 
-export const ProductsRoutingModule = RouterModule.forChild(routes);
+export const CreateRautingModule = RouterModule.forChild(routes);

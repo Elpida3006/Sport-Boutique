@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserRoutingModule } from './user-rauting.module';
 import { UserService } from './user.service';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule, 
     UserRoutingModule, 
-    RouterModule
+    RouterModule, 
+    ReactiveFormsModule
 
   ], 
   providers: [

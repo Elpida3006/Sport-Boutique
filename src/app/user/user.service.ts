@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { PlatformStorageService } from '../core/platform-storage.service';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from '@firebase/auth/dist/auth';
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,18 +18,19 @@ export class UserService {
   constructor(private storage: PlatformStorageService) {
     this.isLogged = this.storage.getItem('isLogged');
   }
-// loadusers():Observable<:void>
-  login(data: any): Observable<any> {
-    this.isLogged = true;
-    this.storage.setItem('isLogged', true);
-    return of(data).pipe(delay(1000));
-  }
 
-  logout(): Observable<any> {
-    this.isLogged = false;
-    this.storage.setItem('isLogged', false);
-    return of(null).pipe(delay(3000));
+  doRegister({email, password}) {
+    return new Promise<any>((resolve, rej) => {
+      firebase.auth().createUserWithEmailAndPassword(email,password)
+      .then(res => {
+        resolve(res);
+      }, err => rej(err))
+     
+    })
+} 
+get isRegister() {
+    return this.isRegister
   }
-
 }
+
 

@@ -3,10 +3,10 @@
 
     <!-- Default form login -->
     <!-- <form class="text-center border border-light p-5 rounded" action="#!" #form="ngForm" (submit)="onSubmit(form)" [class.loading]="loading"> -->
-    <form class="text-center border border-light p-5 rounded">
+    <form class="text-center border border-light p-5 rounded" [formGroup]="form" (ngSubmit)="onSubmit()">
         <p class="h4 mb-4">Login Form!</p>
 
-        <div class="form-row mb-4" *ngIf="isLogin">
+        <div class="form-row mb-4">
 
         </div>
         <p class="field field-icon">
@@ -14,46 +14,53 @@
 
 
             <!-- E-mail -->
-            <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" ngModel>
+            <input type="email" name="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" formControlName="email">
         </p>
+        <div class="alert alert-danger" *ngIf="f.email.errors?.required && f.email.touched">Email is required.</div>
+        <div class="alert alert-danger" *ngIf="f.email.errors?.minlength">Email length is minimum 4 characters.</div>
+        <div class="alert alert-danger" *ngIf="f.email.errors?.email">Email is not valid format.</div>
+
         <!-- Password -->
         <p class="field field-icon">
             <label for="password"><span><i class="fas fa-envelope"></i></span></label>
 
 
-            <!-- E-mail -->
-            <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" ngModel>
+
+            <input type="password" name="password" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Password" aria-describedby="defaultLoginFormEmailPasswordHelpBlock">
         </p>
+        <div class="alert alert-danger" *ngIf="f.password.errors?.required && f.password.touched">Password is required.</div>
+        <div class="alert alert-danger" *ngIf="f.password.errors?.minlength ">Password have to min 14 charachters.</div>
+        <div class="alert alert-danger" *ngIf="f.password.errors?.pattern">Password have to word or/and dgital.</div>
 
-
-        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4" *ngIf="isLogin">
+        <!-- <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4" >
                   At least 8 characters and 1 digit
-              </small> {{ error }}
+              </small> {{ error }} -->
 
 
-        <!-- Sign up button -->
+        <!-- Login button -->
         <button class="btn btn-info my-4 btn-block" type="submit">
                LOGIN
               </button>
-        <span *ngIf="isLogin">
+        <!-- <span *ngIf="isLogin">
                 
                   <a class="font-weight-bold" href="#" (click)="action = 'register'">
                       Sign Up
                       <i class="fas fa-sign-in-alt"></i>
                   </a>
-              </span>
+              </span> -->
 
 
-        <div *ngIf="isLogin">
+        <div>
 
             <hr>
 
             <!-- Terms of service -->
-            <p>By clicking
+            <!-- <p>By clicking
                 <em>Sign up</em> you agree to our
-                <a>terms of service</a>
+                <a>terms of service</a> -->
 
         </div>
+
         <p class="text-center">
             Have no account?
             <a routerLink="/user/register">Register</a>

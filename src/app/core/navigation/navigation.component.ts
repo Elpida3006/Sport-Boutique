@@ -31,7 +31,7 @@ export class NavigationComponent implements OnDestroy {
   }
 
   logoutHandler(): void {
-    this.userService.logout();
+    // this.userService.logout();
   }
 
   ngOnDestroy(): void {

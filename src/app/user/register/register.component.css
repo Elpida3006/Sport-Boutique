@@ -73,6 +73,10 @@ input:not(.input-error) {
     padding-bottom: 0;
 }
 
+.register {
+    color: white;
+}
+
 
 /* errors  */
 
@@ -102,7 +106,7 @@ a {
 }
 
 .mb-4 {
-    color: white;
+    color: black;
     width: 300px;
     height: 30px;
 }
@@ -116,4 +120,16 @@ p {
 .container {
     display: flex;
     padding-bottom: 130px;
+}
+
+div.alert.alert-danger {
+    display: block;
+    width: 450px;
+    font-size: 18px;
+    color: white;
+    font-family: 'Courier New', Courier, sans-serif;
+}
+
+hr {
+    text-decoration: none;
 }

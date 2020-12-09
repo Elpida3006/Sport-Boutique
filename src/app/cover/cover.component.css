@@ -47,12 +47,13 @@ img {
 
 .image-container {
     width: 3200px;
-    height: 600px;
+    height: 480px;
     position: relative;
     transition: left 2s;
     -webkit-transition: left 2s;
     -moz-transition: left 2s;
     -o-transition: left 2s;
+    padding-bottom: 0%;
 }
 
 .slider-image {
@@ -63,7 +64,7 @@ img {
 
 .slide-container-2 {
     width: 800px;
-    height: 600px;
+    height: 500px;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -98,6 +99,7 @@ img {
     border-radius: 5px;
     background-color: white;
     padding: 2px;
+    padding-bottom: 0%;
     margin: 2px;
 }
 
@@ -113,6 +115,7 @@ img {
     left: -1600px;
 }
 
-.container {
-    padding: 10%;
+div.container {
+    padding: 8%;
+    padding-bottom: 0%;
 }

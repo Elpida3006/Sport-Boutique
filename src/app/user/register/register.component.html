@@ -1,11 +1,11 @@
 <div class="container">
 
     <!-- Default form register -->
-    <!-- <form class="text-center border border-light p-5 rounded" action="#!" #form="ngForm" (submit)="onSubmit(form)" [class.loading]="loading"> -->
-    <form class="text-center border border-light p-5 rounded">
-        <p class="h4 mb-4">Register Form!</p>
+    <!-- <form class="text-center border border-light p-5 rounded" action="register" #form="ngForm" (submit)="onSubmit(form)" [class.loading]="loading"> -->
+    <form class="text-center border border-light p-5 rounded " [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p class="register">Register Form!</p>
 
-        <div class="form-row mb-4" *ngIf="isSignUp">
+        <div class="form-row mb-4">
 
         </div>
         <p class="field field-icon">
@@ -13,52 +13,62 @@
 
 
             <!-- E-mail -->
-            <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" ngModel>
+            <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" formControlName="email">
         </p>
+        <div class="alert alert-danger" *ngIf="f.email.errors?.required && f.email.touched">Email is required.</div>
+        <div class="alert alert-danger" *ngIf="f.email.errors?.minlength">Email length is minimum 4 characters.</div>
+        <div class="alert alert-danger" *ngIf="f.email.errors?.email">Email is not valid format.</div>
         <!-- Password -->
         <p class="field field-icon">
             <label for="password"><span><i class="fas fa-envelope"></i></span></label>
 
 
-            <!-- E-mail -->
-            <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" ngModel>
+            <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password">
         </p>
+
+        <div class="alert alert-danger" *ngIf="f.password.errors?.required && f.password.touched">Password is required.</div>
+        <div class="alert alert-danger" *ngIf="f.password.errors?.minlength ">Password have to min 14 charachters.</div>
+        <div class="alert alert-danger" *ngIf="f.password.errors?.pattern">Password have to word or/and dgital.</div>
+
+
+
         <p class="field field-icon">
             <label for="password"><span><i class="fas fa-envelope"></i></span></label>
 
 
             <!-- E-mail -->
-            <input type="password" name="repassword" id="defaultRegisterFormRePassword" class="form-control mb-4" placeholder="Re-Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" ngModel>
+            <input type="password" name="repassword" id="defaultRegisterFormRePassword" class="form-control mb-4" placeholder="Re-Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="repassword">
         </p>
 
-        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4" *ngIf="isSignUp">
-          At least 8 characters and 1 digit
-      </small> {{ error }}
+        <!-- <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+       < <p> At least 8 characters and 1 digit</p>   -->
+        <!-- </small> {{ error }}  -->
 
 
         <!-- Sign up button -->
-        <button class="btn btn-info my-4 btn-block" type="submit">
+        <button class="btn btn-info my-4 btn-block">
        REGISTER
       </button>
-        <span *ngIf="isSignUp">
+        <!-- <span>
         
-          <a class="font-weight-bold" href="#" (click)="action = 'register'">
+          <a class="font-weight-bold" routerLink="/user/register" (click)="action = 'register'">
               Sign Up
               <i class="fas fa-sign-in-alt"></i>
           </a>
-      </span>
+      </span> -->
 
 
-        <div *ngIf="isSignUp">
+        <div>
 
             <hr>
 
             <!-- Terms of service -->
-            <p>By clicking
+            <!-- <p>By clicking
                 <em>Sign up</em> you agree to our
                 <a>terms of service</a>
-
+            </p> -->
         </div>
+
         <p class="text-center">
             Have an account?
             <a routerLink="/user/login">Log In</a>

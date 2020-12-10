@@ -9,7 +9,7 @@
 }
 
 body {
-    /* padding-top: 56px; */
+    padding-top: 106px;
     /* background-image: url("./Views/342910984.jpg"); */
     /* background-image: url("./red-and-gray-sport-background-with-abstract-shapes.jpg"); */
     /* background-color: #03010159; */
@@ -47,7 +47,7 @@ body {
 a {
     color: rgb(153, 6, 6);
     text-decoration: none;
-    background-color: rgb(245, 240, 240);
+    background-color: white;
     display: flex;
     width: 80%;
     padding-left: 0.5%;
@@ -97,7 +97,7 @@ h5.my-4 {
 }
 
 .image-bord {
-    display: block;
+    display: flex;
 }
 
 .menu {
@@ -112,12 +112,16 @@ h5.my-4 {
 }
 
 .h-100 {
-    padding-left: 35%;
-    background-color: white;
+    padding-left: 0%;
+    background-color: rgb(134, 125, 125);
+    border: 5px solid white;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
-.img.card-img-top {
-    text-align: center;
+a>img.card-img-top {
+    margin-left: 15%;
+    margin-right: 20%;
 }
 
 .d-block.img-fluid {
@@ -127,6 +131,15 @@ h5.my-4 {
 
 .card-text {
     border: black;
+    padding-left: 60px;
+}
+
+h5 {
+    padding-left: 60px;
+}
+
+.card-footer {
+    padding-left: 60px;
 }
 
 .card-img-top {
@@ -137,4 +150,14 @@ h5.my-4 {
 
 .col-lg-4.col-md-6.mb-4 {
     border: 2px solid black
+}
+
+button {
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 50px;
+    height: 50px;
+    width: 100px;
+    border-radius: 10%;
+    border: 2px solid orange
 }

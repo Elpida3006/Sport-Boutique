@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateProductsService } from '../create-products.service';
+import { ReactiveFormsModule } from "@Angular/forms";
+import { AngularFirestore } from '@angular/fire/firestore'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-clothes',
@@ -10,28 +13,43 @@ import { CreateProductsService } from '../create-products.service';
 })
 export class ClothesComponent implements OnInit {
   form: FormGroup;
+  isLoading = false;
+  error: string;
+
+
   brand: string;
-   description: string;
-    model: string; 
-    imageURL: string;
-     size: string;
-     type: string;
+  description: string;
+  model: string; 
+  imageURL: string;
+  size: string;
+  type: string;
+
   constructor(
     private router: Router,
     public createProductService: CreateProductsService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public db: AngularFirestore
   ) { }
 
   ngOnInit() {
-    this.form = this.fb.group({   })  
+    this.form = this.fb.group({ 
+      brand : [''],
+      description : [''],
+      model : [''],
+      imageURL : [''],
+      size : [''],
+      type : ['']
+      })  
   }
-  createClothes() {
-const {brand, description, model, type, imageURL, size} = this.form.value;
+  onSubmit() {
+   
+const {id, brand, description, model, type, imageURL, size} = this.form.value;
+this.createProductService.createClothes({id, brand, description, model, type, imageURL, size})
+.then(
+  (res) => {
+    // this.resetFields();
+    this.router.navigate([`products/clothes`]) 
+   })
 
-
-
-this.router.navigate([`products/clothes`])
+  } 
   }
-
-
-}

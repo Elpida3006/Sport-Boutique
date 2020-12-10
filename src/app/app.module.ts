@@ -1,8 +1,12 @@
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import * as firebase from '@firebase/auth/dist/auth';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule ,AngularFirestore} from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+
 
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,6 +44,8 @@ import { CreateProductsService } from './createProducts/create-products.service'
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, 
     AngularFireAuthModule,
+    // AngularFireMessagingModule,
+    // AngularFireStorageModule,
     AppRoutingModule, 
     CoreModule, 
     // CoverModule,
@@ -53,7 +59,9 @@ import { CreateProductsService } from './createProducts/create-products.service'
     UserService, 
     ProductsService,
     PlatformStorageService, 
-    CreateProductsService
+    CreateProductsService, 
+    AngularFirestore, 
+    // {provide: StorageBucket}
     
   ],
   bootstrap: [AppComponent, NavigationComponent, FooterComponent ],

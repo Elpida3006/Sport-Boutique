@@ -33,34 +33,24 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      
+
       email: ["", [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.email]],
       password: ['', [Validators.required, Validators.pattern(/[a-zA-Z]+/), Validators.minLength(14)]],
      
     })   
   }
-  // onSubmit()
-  // // onSubmit(form: NgForm)  
-  // {
-    
-    // if(this.form.invalid) {
-    //   return;
-    // } 
+ 
     
   
     register() {
       const {email, password} = this.form.value;
       this.userService.register(email, password)
-      // .then(res => {
-        // console.log(res);
+     
         this.email = this.password = '';    
 
         this.router.navigate([`user/login`])
         alert('your account is created')
-      // }, err => {
-      //   console.log(err);
-      // })
-    // }
+    
     
   
  

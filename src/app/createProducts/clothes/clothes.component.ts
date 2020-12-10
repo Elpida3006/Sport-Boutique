@@ -15,7 +15,7 @@ export class ClothesComponent implements OnInit {
     model: string; 
     imageURL: string;
      size: string;
-  
+     type: string;
   constructor(
     private router: Router,
     public createProductService: CreateProductsService,
@@ -26,7 +26,7 @@ export class ClothesComponent implements OnInit {
     this.form = this.fb.group({   })  
   }
   createClothes() {
-const {brand, description, model, imageURL, size} = this.form.value;
+const {brand, description, model, type, imageURL, size} = this.form.value;
 
 
 

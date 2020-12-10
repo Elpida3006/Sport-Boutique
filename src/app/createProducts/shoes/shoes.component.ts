@@ -15,6 +15,7 @@ export class ShoesComponent implements OnInit {
     model: string; 
     imageURL: string;
      size: string;
+     type:string;
   
   constructor(
      private router: Router,
@@ -25,7 +26,7 @@ export class ShoesComponent implements OnInit {
     this.form = this.fb.group({   })  
   }
   createShoes() {
-    const {brand, description, model, imageURL, size} = this.form.value;
+    const {brand, description, model, type, imageURL, size} = this.form.value;
 
 
 this.router.navigate([`products/shoes`])

@@ -1,0 +1,140 @@
+/* You can add global styles to this file, and also import other style files */
+
+@media (min-width: 992px) {}
+
+*,
+ ::after,
+ ::before {
+    box-sizing: border-box;
+}
+
+body {
+    /* padding-top: 56px; */
+    /* background-image: url("./Views/342910984.jpg"); */
+    /* background-image: url("./red-and-gray-sport-background-with-abstract-shapes.jpg"); */
+    /* background-color: #03010159; */
+    width: 100%;
+    background-repeat: repeat;
+}
+
+
+/* */
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #050f1a;
+    text-align: left;
+    background-color: rgb(19, 15, 15);
+}
+
+body {
+    padding-top: 56px;
+    display: block;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+a {
+    color: rgb(153, 6, 6);
+    text-decoration: none;
+    background-color: rgb(245, 240, 240);
+    display: flex;
+    width: 80%;
+    padding-left: 0.5%;
+    margin: 10%;
+}
+
+.admin-group-item {
+    color: rgb(9, 6, 197);
+    text-decoration: none;
+    background-color: rgb(26, 25, 25);
+    display: flex;
+    width: 80%;
+    padding-left: 0.5%;
+    margin: 10%;
+}
+
+.shopProducts {
+    padding-top: 100px;
+    padding-bottom: 0%;
+    padding-right: 10%;
+    padding-left: 8%;
+    display: flex;
+    width: 80%;
+}
+
+.core {
+    display: flex;
+    width: 60%;
+    padding-left: 9%;
+    padding-right: 18%;
+}
+
+.list-articles {
+    padding: 10px;
+    margin: 20px;
+    width: 80%;
+    /* background-color: beige;
+    color: black; */
+}
+
+h5.my-4 {
+    text-align: left;
+    text-shadow: beige;
+    font-size: 28px;
+    display: flex;
+    margin-left: 45px;
+}
+
+.image-bord {
+    display: block;
+}
+
+.menu {
+    display: block;
+    padding-left: 40%;
+    padding-right: 20%;
+    padding-top: 5%;
+}
+
+.filter-products {
+    display: inline;
+}
+
+.h-100 {
+    padding-left: 35%;
+    background-color: white;
+}
+
+.img.card-img-top {
+    text-align: center;
+}
+
+.d-block.img-fluid {
+    height: 700px;
+    width: 900px;
+}
+
+.card-text {
+    border: black;
+}
+
+.card-img-top {
+    width: 400px;
+    height: 400px;
+    padding-left: 0px;
+}
+
+.col-lg-4.col-md-6.mb-4 {
+    border: 2px solid black
+}

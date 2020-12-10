@@ -16,14 +16,13 @@ export class ClothesComponent implements OnInit {
   isLoading = false;
   error: string;
 
-
   brand: string;
   description: string;
   model: string; 
   imageURL: string;
   size: string;
   type: string;
-
+  price: string;
   constructor(
     private router: Router,
     public createProductService: CreateProductsService,
@@ -38,13 +37,14 @@ export class ClothesComponent implements OnInit {
       model : [''],
       imageURL : [''],
       size : [''],
-      type : ['']
+      type : [''],
+      price: ['']
       })  
   }
   onSubmit() {
    
-const {id, brand, description, model, type, imageURL, size} = this.form.value;
-this.createProductService.createClothes({id, brand, description, model, type, imageURL, size})
+const {id, brand, description, model, type, imageURL, size, price} = this.form.value;
+this.createProductService.createClothes({id, brand, description, model, type, imageURL, size, price})
 .then(
   (res) => {
     // this.resetFields();
@@ -53,3 +53,5 @@ this.createProductService.createClothes({id, brand, description, model, type, im
 
   } 
   }
+
+  

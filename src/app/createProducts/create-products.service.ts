@@ -24,7 +24,8 @@ export class CreateProductsService {
        model: value.model,
        imageURL: value.imageURL,
         size: value.size,
-        type: value.type
+        type: value.type,
+        price: value.price
     });
 }
 }

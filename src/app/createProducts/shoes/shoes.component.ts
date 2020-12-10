@@ -27,8 +27,6 @@ export class ShoesComponent implements OnInit {
   }
   createShoes() {
     const {brand, description, model, type, imageURL, size} = this.form.value;
-
-
-this.router.navigate([`products/shoes`])
+this.router.navigate([`products/shoes`]);
   }
 }

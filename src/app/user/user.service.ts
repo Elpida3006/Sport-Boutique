@@ -18,31 +18,36 @@ export class UserService {
   user: Observable<firebase.User>;
 
   isLogged = false;
-
+isAdmin = false;
   constructor(private firebaseAuth: AngularFireAuth,  private storage: PlatformStorageService) {
     this.user = firebaseAuth.authState;
 
     this.isLogged = this.storage.getItem('isLogged');
+    this.isAdmin = this.storage.getItem('isAdmin');
   }
 
   register(email: string, password: string) {
-    // return new Promise<any>((resolve, rej) => {
+
      
       this.firebaseAuth.createUserWithEmailAndPassword(email,password)
       .then(res => {
-        // resolve(res);
+       
       console.log('congratulations!!!');
       }) .catch(err => {
-      // rej(err)
+     
       console.log(`you do not have registration`)
      
   });
 }
 
   login(email: string, password: string) {
+    if ( email === `nadq1234@abv.bg`&& password === 'nadq1234nadq1234') {
+      this.isAdmin = true;
+    }
     this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then(value => {
+      
         console.log('Nice, it worked!');
         // isLogged = true;
       })
@@ -50,6 +55,7 @@ export class UserService {
         console.log('Something went wrong:',err.message);
       });
   }
+ 
 
   logout() {
     this.firebaseAuth.signOut();

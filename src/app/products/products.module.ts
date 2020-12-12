@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 
 
 
+
 @NgModule({
   declarations: [AccessoryComponent, ShoesComponent, ClothesComponent, PromotionComponent],
   imports: [
@@ -25,6 +26,7 @@ ProductsService,
 
   ],
   exports: [
+    
     AccessoryComponent,
     ShoesComponent,
     ClothesComponent, 

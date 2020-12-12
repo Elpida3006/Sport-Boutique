@@ -1,46 +1,74 @@
 <div class="menu">
     <div class="listClothes" *ngFor="let clothe of (clothes | async)">
+
         <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div *ngIf="!(editState)" class="card h-100">
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">{{clothe.brand}}</a>
+                        <a href="#"><span class="span">Brand: </span> {{clothe.data.brand}}</a>
                     </h4>
-                    <a href="#"><img class="card-img-top" src="{{clothe.imageURL}}" alt=""></a>
+                    <a class="img" routerLink='/'><img class="card-img-top" src="{{clothe.data.imageURL}}" alt=""></a>
 
                     <h4 class="card-title">
-                        <a href="#">{{clothe.model}}</a>
+                        <a routerLink='/'><span class="span">Model: </span> {{clothe.data.model}}</a>
                     </h4>
-                    <h5>${{clothe.price}}</h5>
-                    <p class="card-text">Category: {{clothe.type}}</p>
-                    <p class="card-text">Size in stock: {{clothe.size}}</p>
+                    <h5>${{clothe.data.price}}</h5>
+                    <p class="card-text">Category: {{clothe.data.type}}</p>
+                    <p class="card-text">Size in stock: {{clothe.data.size}}</p>
 
-                    <p class="card-text">{{clothe.description}}</p>
+                    <p class="card-text">{{clothe.data.description}}</p>
 
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
-                <button class="btn btn-info my-4 btn-block">
+                <button (click)="editClothe($event, clothe.id)" class="btn btn-info my-4 btn-block">
                  Edit
                </button>
-                <button class="btn btn-info my-4 btn-block">
+                <button (click)="deleteClothe($event, clothe.id)" class="btn btn-info my-4 btn-block">
                 Delete
                </button>
             </div>
-            <!-- <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/400x400" alt=""></a>
-            <div class="card-body">
-                <h4 class="card-title">
-                    <a href="#">Item Three</a>
-                </h4>
-                <h5>{{price}}</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+
+            <div *ngIf="editState && clothe.id" class="col-lg-4 col-md-6 mb-4">
+                <form (ngSubmit)="updateClote($event, clothe.id)">
+
+
+                    <div class="card h-100">
+                        <div class="card-body">
+
+                            <a>Fill in the NEW Assortment for the <span class="clothesBord">  Clothes article!</span> </a>
+                            <p class="card-new">
+                                <input type="text" value="{{clothe.data.brand}}" name="brand" class="card-new" aria-describedby="New brand" formControlName="newBrand">
+                            </p>
+
+                            <p class="card-new">
+                                <input type="text" value="{{clothe.data.model}}" name="model" class="card-new" aria-describedby="New model" formControlName="newModel">
+                            </p>
+                            <p class="card-new">
+                                <input type="text" value="{{clothe.data.type}}" name="type" class="card-new" aria-describedby="Mew type" formControlName="newType">
+                            </p>
+                            <p class="card-new">
+                                <input type="text" value="{{clothe.data.size}}" name="size" class="card-new" aria-describedby="New size" formControlName="newSize">
+                            </p>
+                            <p class="card-new">
+                                <input type="text-area" value="{{clothe.data.description}}" name="description" class="card-new" aria-describedby="New description" formControlName="newDescription">
+                            </p>
+                            <p class="card-new">
+                                <input type="text" value="${{clothe.data.price}}" name="price" class="card-new" aria-describedby="New price" formControlName="newPrice">
+                            </p>
+                            <p class="card-new">
+                                <input type="text" value="{{clothe.data.imageURL}}" name="imgURL" class="card-new" aria-describedby="New imаgеURL" formControlName="newImageURL">
+                            </p>
+                            <button (click)="updateClote($event, clothe.id)" class="btn btn-info my-4 btn-block">
+                            Update
+                          </button>
+                            <button (click)="noEdit($event, clothe.id)" class="btn btn-info my-4 btn-block">
+                            Cancel
+                          </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-            </div>
-        </div> -->
         </div>
     </div>
-</div>

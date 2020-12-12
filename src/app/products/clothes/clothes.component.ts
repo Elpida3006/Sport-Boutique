@@ -5,6 +5,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import {Product} from '../products.service'
 
 @Component({
   selector: 'app-clothes',
@@ -13,11 +14,14 @@ import { map } from 'rxjs/operators';
 })
 export class ClothesComponent implements OnInit {
   clothes: Observable<any>; 
+  editState: boolean = false;
+  
 
   form: FormGroup;
   isLoading = false;
   error: string;
 
+  
   constructor( 
     public firebaseService: ProductsService,
     public db: AngularFirestore,
@@ -25,17 +29,46 @@ export class ClothesComponent implements OnInit {
     private router: Router,
   ) {
    }
-
-  ngOnInit()
-  { 
+  ngOnInit() { 
+    
    this.clothes = this.firebaseService.getClothes()
    .snapshotChanges()
    .pipe(
      map(actions => actions.map(a => {
-       const data = a.payload.doc.data();
-       return data
+       const data = a.payload.doc.data() 
+       const id = a.payload.doc.id;
+      
+       return {data, id} 
            }))
-   )
+
+   )}
+    deleteClothe = (event, id) =>  {
+      this.firebaseService.deleteClothes(id)
+      .then((res) => {
+          this.router.navigate(['products/clothes'])
+      })
+      .catch((err) => 
+          console.log(`Don't delete id`))
+  
+    }
+
+    editClothe = (event, itemEdit) => {
+      this.editState = true;
+    // const itemEdit = id;
+      this.firebaseService.editClothes(itemEdit)
+     
+     
+    }
+    noEdit = (event, id) => {
+      this.editState = false;
+    }
+    updateClote= (event, id) => {
+     
+        this.firebaseService.updateClothes(id)
+          .then((res) => {
+          this.router.navigate([`products/clothes`])
+      this.editState = false;
+      })
     }
   }
   

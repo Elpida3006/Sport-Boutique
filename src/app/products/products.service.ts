@@ -6,9 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  // clothe: Observable<any>
-  productCollection: AngularFirestoreCollection<Product>
-    constructor(public db: AngularFirestore) { }
+
+  clothes: Observable<any>
+  // productCollection: AngularFirestoreCollection<Product>
+   
+  constructor(public db: AngularFirestore) { }
 
   getClothes(){
     return this.db.collection('clothes');
@@ -21,15 +23,15 @@ export class ProductsService {
   editClothes(id) {
     return this.db.collection('clothes')
   }
-  updateClothes(id) {
-    return this.db.collection('clothes').doc(id).update(id)
+  updateClothes(id, ...data) {
+    return this.db.collection('clothes').doc(id).set( data )
 
   }
 }  
-export interface Product {
-  id?:string;
-  title?:string;
-  description?:string;
-}
+// export interface Product {
+//   id?:string;
+//   title?:string;
+//   description?:string;
+// }
 
  

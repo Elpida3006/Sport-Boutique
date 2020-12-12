@@ -5,7 +5,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map } from 'rxjs/operators';
-import {Product} from '../products.service'
+// import {Product} from '../products.service'
 
 @Component({
   selector: 'app-clothes',
@@ -13,9 +13,10 @@ import {Product} from '../products.service'
   styleUrls: ['./clothes.component.css']
 })
 export class ClothesComponent implements OnInit {
-  clothes: Observable<any>; 
+  clothes: Observable<any>
   editState: boolean = false;
-  
+  // clothes: Observable<Product[]>
+
 
   form: FormGroup;
   isLoading = false;
@@ -30,7 +31,15 @@ export class ClothesComponent implements OnInit {
   ) {
    }
   ngOnInit() { 
-    
+    this.form = this.fb.group({ 
+      newBrand : [''],
+      newDescription : [''],
+      newModel : [''],
+      newImageURL : [''],
+      newSize : [''],
+      newType : [''],
+      newPrice: ['']
+      })  
    this.clothes = this.firebaseService.getClothes()
    .snapshotChanges()
    .pipe(
@@ -63,8 +72,8 @@ export class ClothesComponent implements OnInit {
       this.editState = false;
     }
     updateClote= (event, id) => {
-     
-        this.firebaseService.updateClothes(id)
+      const { newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} = this.form.value;
+        this.firebaseService.updateClothes( { newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} )
           .then((res) => {
           this.router.navigate([`products/clothes`])
       this.editState = false;

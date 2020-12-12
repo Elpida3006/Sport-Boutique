@@ -1,0 +1,20 @@
+.container {
+    display: block;
+    margin-top: 230px;
+    padding-bottom: 40px;
+    background: linear-gradient(0deg, rgb(39, 40, 41) 0%, rgb(12, 14, 15) 35%, rgb(202, 218, 221) 100%);
+}
+
+.text-center {
+    display: flex;
+    padding-left: 800px;
+    text-align: center;
+}
+
+.center {
+    padding-left: 1000px;
+    color: rgb(56, 4, 4);
+}
+
+
+/*  */

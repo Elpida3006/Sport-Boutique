@@ -27,6 +27,22 @@ export class ProductsService {
     return this.db.collection('clothes').doc(id).set( data )
 
   }
+  getAccessories(){
+    return this.db.collection('accessory');
+  }
+  deleteAccessories(id){
+  // console.log(id);
+
+   return this.db.collection('accessory').doc(id).delete();
+  }
+  editAccessories(id) {
+    return this.db.collection('accessory')
+  }
+  updateAccessories(id, ...data) {
+    return this.db.collection('accessory').doc(id).set( data )
+
+  }
+
 }  
 // export interface Product {
 //   id?:string;

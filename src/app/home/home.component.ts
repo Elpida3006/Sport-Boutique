@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import {Router } from '@angular/router';
+
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent  {
 
-  constructor() { }
 
+  constructor(
+    title: Title,
+    public userService: UserService,
+    router: Router
+  ) {}
   
-
 }
+

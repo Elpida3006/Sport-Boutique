@@ -1,3 +1,122 @@
-<p>accessory works!</p>
-<p>test1 works</p>
-<p>test works</p>
+<div class="container">
+    <div class="shopProducts">
+
+        <div class="list-articles">
+            <h5 class="my-4">Our Articles and the best suggestion</h5>
+            <a routerLink="/products/clothes" class="list-group-item">Clothes</a>
+            <a routerLink="/products/shoes" class="list-group-item">Shoes</a>
+            <a routerLink="/products/accessory" class="list-group-item">Accessory</a>
+            <!-- <li class="nav-item" *ngIf="isLogged ">
+                <a routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
+            </li> -->
+            <a *ngIf="(userService.user | async)" routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
+            <!-- admin routes -->
+            <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
+            <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>
+            <a routerLink="/createProducts/accessory" class="admin-group-item">Create Accessory</a>
+
+
+        </div>
+        <section class="core">
+            <div class="image-bord">
+
+
+                <div class="carousel-item active">
+                    <img class="d-block img-fluid" src="https://images.footlocker.com/content/dam/final/champs/site/homepage/20201130-hp-jordan-retro-1-hi-blk-gd-and-aj1-mid-gold-bk-launch-banner-m-1up.jpg" alt=" First slide ">
+
+
+
+                </div>
+
+
+
+            </div>
+        </section>
+    </div>
+
+    <div class="menu">
+        <!-- <div class="banner">
+            <h1>page title identifying website</h1>
+            <h1></h1>
+
+        </div> -->
+        <div class="listClothes" *ngFor="let acc of (accessory | async)">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div *ngIf="!(editState)" class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#"><span class="span">Brand: </span> {{acc.data.brand}}</a>
+                        </h4>
+                        <a class="img" routerLink='{{acc.data.imageURL}}'><img class="card-img-top" src="{{acc.data.imageURL}}" alt=""></a>
+
+                        <h4 class="card-title">
+                            <a routerLink='/'><span class="span">Model: </span> {{acc.data.model}}</a>
+                        </h4>
+                        <h5>${{acc.data.price}}</h5>
+                        <p class="card-text">Category: {{acc.data.type}}</p>
+                        <p class="card-text">Size in stock: {{acc.data.size}}</p>
+
+                        <p class="card-text">{{acc.data.description}}</p>
+
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                    </div>
+                    <button (click)="editAccessory($event, acc.id)" class="btn btn-info my-4 btn-block">
+                     Edit
+                   </button>
+                    <button (click)="deleteAccessory($event, acc.id)" class="btn btn-info my-4 btn-block">
+                    Delete
+                   </button>
+                    <button *ngIf="(userService.user | async)" (click)="buyAccessory($event, acc.id)" class="btn btn-info my-4 btn-block">
+                    BUY
+                   </button>
+                    <button (click)="top()" class="btn btn-info my-4 btn-block">
+                    TOP
+                   </button>
+                </div>
+
+                <div *ngIf="editState && acc.id" class="col-lg-4 col-md-6 mb-4">
+                    <form (ngSubmit)="updateAccessory($event, acc.id)">
+
+
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                <a>Fill in the NEW Assortment for the <span class="clothesBord">  Clothes article!</span> </a>
+                                <p class="card-new">
+                                    <input type="text" value="{{acc.data.brand}}" name="brand" class="card-new" aria-describedby="New brand" formControlName="newBrand">
+                                </p>
+
+                                <p class="card-new">
+                                    <input type="text" value="{{acc.data.model}}" name="model" class="card-new" aria-describedby="New model" formControlName="newModel">
+                                </p>
+                                <p class="card-new">
+                                    <input type="text" value="{{acc.data.type}}" name="type" class="card-new" aria-describedby="Mew type" formControlName="newType">
+                                </p>
+                                <p class="card-new">
+                                    <input type="text" value="{{acc.data.size}}" name="size" class="card-new" aria-describedby="New size" formControlName="newSize">
+                                </p>
+                                <p class="card-new">
+                                    <input type="text-area" value="{{acc.data.description}}" name="description" class="card-new" aria-describedby="New description" formControlName="newDescription">
+                                </p>
+                                <p class="card-new">
+                                    <input type="text" value="${{acc.data.price}}" name="price" class="card-new" aria-describedby="New price" formControlName="newPrice">
+                                </p>
+                                <p class="card-new">
+                                    <input type="text" value="{{acc.data.imageURL}}" name="imgURL" class="card-new" aria-describedby="New imаgеURL" formControlName="newImageURL">
+                                </p>
+                                <button (click)="updateAccessory($event, acc.id)" class="btn btn-info my-4 btn-block">
+                                Update
+                              </button>
+                                <button (click)="noEdit($event, acc.id)" class="btn btn-info my-4 btn-block">
+                                Cancel
+                              </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

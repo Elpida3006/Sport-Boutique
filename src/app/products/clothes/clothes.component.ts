@@ -5,6 +5,8 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import { UserService } from 'src/app/user/user.service';
+import { Title } from '@angular/platform-browser';
 // import {Product} from '../products.service'
 
 @Component({
@@ -34,6 +36,9 @@ export class ClothesComponent implements OnInit {
     public db: AngularFirestore,
     private fb: FormBuilder,
     private router: Router,
+      title: Title,
+    public userService: UserService,
+   
   ) {
    }
   ngOnInit() { 

@@ -9,7 +9,7 @@
             <!-- <li class="nav-item" *ngIf="isLogged ">
                 <a routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
             </li> -->
-            <a routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
+            <a *ngIf="(userService.user | async)" routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
             <!-- admin routes -->
             <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
             <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>
@@ -69,7 +69,7 @@
                     <button (click)="deleteClothe($event, clothe.id)" class="btn btn-info my-4 btn-block">
                     Delete
                    </button>
-                    <button (click)="buyClothe($event, clothe.id)" class="btn btn-info my-4 btn-block">
+                    <button *ngIf="(userService.user | async)" (click)="buyClothe($event, clothe.id)" class="btn btn-info my-4 btn-block">
                     BUY
                    </button>
                     <button (click)="top()" class="btn btn-info my-4 btn-block">

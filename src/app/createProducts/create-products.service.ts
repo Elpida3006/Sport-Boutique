@@ -28,5 +28,17 @@ export class CreateProductsService {
         price: value.price
     });
 }
+createAccessory(value) {
+  console.log(value);
+ return this.db.collection('accessory').add({
+  brand: value.brand,
+    description: value.description,
+     model: value.model,
+     imageURL: value.imageURL,
+      size: value.size,
+      type: value.type,
+      price: value.price
+  });
+}
 
 }

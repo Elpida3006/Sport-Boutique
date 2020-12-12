@@ -7,10 +7,9 @@
             <a routerLink="/products/clothes" class="list-group-item">Clothes</a>
             <a routerLink="/products/shoes" class="list-group-item">Shoes</a>
             <a routerLink="/products/accessory" class="list-group-item">Accessory</a>
-            <!-- <li class="nav-item" *ngIf="isLogged ">
-                <a routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
-            </li> -->
-            <a routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
+
+
+            <a *ngIf="(userService.user | async)" routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
             <!-- admin routes -->
             <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
             <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>

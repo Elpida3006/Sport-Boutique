@@ -4,6 +4,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CoverComponent } from './cover/cover.component';
 import { HomeComponent } from './home/home.component';
 import {AboutComponent} from './about/about.component'
+import { BuyProductsComponent } from './buy-products/buy-products.component';
 const routes: Routes = [
   {
     path: '', 
@@ -39,6 +40,14 @@ const routes: Routes = [
     component: AboutComponent, 
     data: {
       title: 'ABOUT'
+    }
+
+  },
+  {
+    path: 'buy', 
+    component: BuyProductsComponent, 
+    data: {
+      title: 'BUY'
     }
 
   },

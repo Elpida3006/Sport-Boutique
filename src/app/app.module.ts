@@ -31,12 +31,13 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { CreateProductsModule } from './createProducts/create-products.module';
 import { CreateProductsService } from './createProducts/create-products.service';
+import { BuyProductsComponent } from './buy-products/buy-products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoverComponent, 
-    HomeComponent, ContactComponent, AboutComponent
+    HomeComponent, ContactComponent, AboutComponent, BuyProductsComponent
 
   ],
   imports: [

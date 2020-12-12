@@ -1,0 +1,209 @@
+/* You can add global styles to this file, and also import other style files */
+
+@media (min-width: 992px) {}
+
+*,
+ ::after,
+ ::before {
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 106px;
+    /* background-image: url("./Views/342910984.jpg"); */
+    /* background-color: #03010159; */
+    width: 100%;
+}
+
+
+/* */
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #050f1a;
+    text-align: left;
+    background-color: rgb(19, 15, 15);
+    padding-top: 56px;
+    display: block;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+a {
+    color: rgb(153, 6, 6);
+    text-decoration: none;
+    background-color: white;
+    display: flex;
+    width: 80%;
+    padding-left: 0.5%;
+    margin: 10%;
+}
+
+.admin-group-item {
+    color: rgb(9, 6, 197);
+    text-decoration: none;
+    background-color: rgb(26, 25, 25);
+    display: flex;
+    width: 80%;
+    padding-left: 0.5%;
+    margin: 10%;
+}
+
+.shopProducts {
+    padding-top: 100px;
+    padding-bottom: 0%;
+    padding-right: 10%;
+    padding-left: 8%;
+    display: flex;
+    width: 80%;
+}
+
+.core {
+    display: flex;
+    width: 60%;
+    padding-left: 9%;
+    padding-right: 18%;
+}
+
+.list-articles {
+    padding: 10px;
+    margin: 20px;
+    width: 80%;
+    /* background-color: beige;
+    color: black; */
+}
+
+h5.my-4 {
+    text-align: left;
+    text-shadow: beige;
+    font-size: 28px;
+    display: flex;
+    margin-left: 45px;
+}
+
+.image-bord {
+    display: flex;
+}
+
+.menu {
+    display: block;
+    padding-left: 40%;
+    padding-right: 20%;
+    padding-top: -55%;
+    background-color: black;
+    background-image: url("/../red-and-gray-sport-background-with-abstract-shapes.jpg");
+}
+
+.filter-products {
+    display: inline;
+}
+
+.h-100 {
+    padding-left: 0%;
+    background-color: rgb(134, 125, 125);
+    border: 5px solid white;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    margin: 15px
+}
+
+a>img.card-img-top {
+    margin-left: 18%;
+    margin-right: 20%;
+    /* height: 600px;
+    width: 600px; */
+}
+
+
+/* .img {
+    height: 400px;
+    width: 400px;
+} */
+
+.d-block.img-fluid {
+    height: 700px;
+    width: 900px;
+}
+
+.card-text {
+    border: black;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+h5 {
+    padding-left: 70px;
+}
+
+.card-footer {
+    padding-left: 70px;
+}
+
+.card-img-top {
+    width: 400px;
+    height: 400px;
+    padding-left: 0px;
+}
+
+.col-lg-4.col-md-6.mb-4 {
+    border: 2px solid black
+}
+
+button {
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 50px;
+    height: 50px;
+    width: 100px;
+    border-radius: 10%;
+    border: 2px solid orange
+}
+
+.span {
+    color: black;
+    margin-right: 10px;
+    ;
+}
+
+.card-new {
+    width: 550px;
+    height: 50px;
+    padding-left: 70px;
+    font-size: 22px;
+}
+
+h5.my-4 {
+    text-align: left;
+    text-shadow: beige;
+    font-size: 28px;
+    display: flex;
+    margin-left: -25px;
+}
+
+
+/* .banner {
+    width: 280px;
+    height: 800px;
+    font-size: 14px;
+    font-family: cursive 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 2px solid white;
+    padding: 50px;
+    margin: 50px;
+    display: flex;
+    width: 20%;
+}
+
+.listClothes {
+    display: flex;
+    width: 80%;
+} */

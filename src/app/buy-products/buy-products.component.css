@@ -1,0 +1,11 @@
+.buy-prod {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    padding-top: 100px;
+    padding-left: 100px;
+}
+
+a {
+    color: rgb(25, 201, 25)
+}

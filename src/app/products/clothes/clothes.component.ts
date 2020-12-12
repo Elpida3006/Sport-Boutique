@@ -22,7 +22,13 @@ export class ClothesComponent implements OnInit {
   isLoading = false;
   error: string;
 
-  
+  newBrand : string;
+      newDescription :string;
+      newModel : string;
+      newImageURL : string;
+      newSize : string;
+      newType : string;
+      newPrice: string;
   constructor( 
     public firebaseService: ProductsService,
     public db: AngularFirestore,
@@ -72,12 +78,20 @@ export class ClothesComponent implements OnInit {
       this.editState = false;
     }
     updateClote= (event, id) => {
-      const { newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} = this.form.value;
-        this.firebaseService.updateClothes( { newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} )
+      const { newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} = this.form.value 
+        this.firebaseService.updateClothes({id,  newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} )
           .then((res) => {
           this.router.navigate([`products/clothes`])
       this.editState = false;
       })
+    }
+
+    buyClothe = (event, id) => {
+//da go wzema id ot item-a i da redirektna kym buy stranica
+this.router.navigate(['buy'])
+    }
+    top() {
+      this.router.navigate([`home`])
     }
   }
   

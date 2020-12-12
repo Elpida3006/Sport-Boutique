@@ -99,7 +99,7 @@ h5.my-4 {
     display: block;
     padding-left: 40%;
     padding-right: 20%;
-    padding-top: 5%;
+    padding-top: -55%;
     background-color: black;
     background-image: url("/../red-and-gray-sport-background-with-abstract-shapes.jpg");
 }
@@ -181,3 +181,29 @@ button {
     padding-left: 70px;
     font-size: 22px;
 }
+
+h5.my-4 {
+    text-align: left;
+    text-shadow: beige;
+    font-size: 28px;
+    display: flex;
+    margin-left: -25px;
+}
+
+
+/* .banner {
+    width: 280px;
+    height: 800px;
+    font-size: 14px;
+    font-family: cursive 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 2px solid white;
+    padding: 50px;
+    margin: 50px;
+    display: flex;
+    width: 20%;
+}
+
+.listClothes {
+    display: flex;
+    width: 80%;
+} */

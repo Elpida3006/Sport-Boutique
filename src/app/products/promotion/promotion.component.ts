@@ -72,18 +72,7 @@ export class PromotionComponent implements OnInit {
   
     }
 
-    editPromo = (event, id) => {
-     
-       this.editState = true;
-      const promo = this.firebaseService.editPromotions(id).ref.get().then((doc) => {
-        if(doc.exists) {
-         const currentPromo = doc.data();
-          this.form.patchValue(currentPromo) 
-        }
-
-      })
-     
-    }
+ 
     noEdit = (event, id) => {
       this.editState = false;
     }
@@ -91,7 +80,6 @@ export class PromotionComponent implements OnInit {
     
 
     buyPromotion = (event, id) => {
-//da go wzema id ot item-a i da redirektna kym buy stranica
 this.router.navigate(['buy'])
     }
 

@@ -34,8 +34,8 @@ export class EditAccessoryComponent implements OnInit {
         this.firebaseService.editAccessories(id).ref.get()
         .then((doc) => {
            if(doc.exists) {
-            const currentClothe = doc.data();
-             this.form.patchValue(currentClothe) 
+            const currentAccessory = doc.data();
+             this.form.patchValue(currentAccessory) 
            }
          })
       })

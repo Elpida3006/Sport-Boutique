@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../products.service';
+
 @Component({
   selector: 'app-edit-clothe',
   templateUrl: './edit-clothe.component.html',
   styleUrls: ['./edit-clothe.component.css']
 })
+
 export class EditClotheComponent implements OnInit {
 form: FormGroup;
 clothe: any;
@@ -43,7 +45,7 @@ clotheId: string;
   }
 
   updateClote(){
-    debugger
+   
        const { brand, description, model, type, imageURL, size, price} = this.form.value 
       this.firebaseService.updateClothes(this.clotheId, { brand, description, model, type, imageURL, size, price} )          .then((res) => {
         this.router.navigate([`products/clothes`])

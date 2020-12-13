@@ -76,7 +76,7 @@ export class ShoesComponent implements OnInit {
 
 
 
-         editShoe(){}
+        
   }
 
 

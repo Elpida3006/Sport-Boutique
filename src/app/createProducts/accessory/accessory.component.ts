@@ -21,6 +21,7 @@ export class AccessoryComponent implements OnInit {
   size: string;
   type: string;
   price: string;
+  
   constructor( private router: Router,
     public createProductService: CreateProductsService,
     private fb: FormBuilder,

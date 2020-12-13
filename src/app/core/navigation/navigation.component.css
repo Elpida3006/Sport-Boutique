@@ -18,7 +18,6 @@ a.navbar-brand {
     border: rgb(141, 139, 139) solid 1px;
     border-radius: 5px;
     /* background: rgb(33, 36, 37); */
-    background: linear-gradient(0deg, rgb(39, 40, 41) 0%, rgb(12, 14, 15) 35%, rgb(202, 218, 221) 100%);
 }
 
 li.nav-item {

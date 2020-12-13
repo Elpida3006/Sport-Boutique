@@ -48,6 +48,7 @@ export class PromotionComponent implements OnInit {
     this.createProductService.createPromotions({id, brand, percent,description, model, type, imageURL, size, price})
     .then(
       (res) => {
+      
         // this.resetFields();
         this.router.navigate([`products/promotion`]) 
        })

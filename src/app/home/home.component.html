@@ -11,9 +11,13 @@
 
             <a *ngIf="(userService.user | async)" routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
             <!-- admin routes -->
-            <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
-            <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>
-            <a routerLink="/createProducts/accessory" class="admin-group-item">Create Accessory</a>
+            <div *ngIf="isAdmin">
+                <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
+                <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>
+                <a routerLink="/createProducts/accessory" class="admin-group-item">Create Accessory</a>
+                <a routerLink="/createProducts/promotion" class="admin-group-item">Create Promtion</a>
+
+            </div>
 
         </div>
         <section class="core">

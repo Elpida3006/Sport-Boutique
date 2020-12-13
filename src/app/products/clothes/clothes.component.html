@@ -11,10 +11,13 @@
             </li> -->
             <a *ngIf="(userService.user | async)" routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
             <!-- admin routes -->
-            <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
-            <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>
-            <a routerLink="/createProducts/accessory" class="admin-group-item">Create Accessory</a>
+            <div *ngIf="isAdmin">
+                <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
+                <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>
+                <a routerLink="/createProducts/accessory" class="admin-group-item">Create Accessory</a>
+                <a routerLink="/createProducts/promotion" class="admin-group-item">Create Accessory</a>
 
+            </div>
 
         </div>
         <section class="core">
@@ -34,32 +37,34 @@
         </section>
     </div>
 
-    <div class="menu">
+    <!-- <div class="menu">
         <!-- <div class="banner">
             <h1>page title identifying website</h1>
             <h1></h1>
 
         </div> -->
-        <div class="listClothes" *ngFor="let clothe of (clothes | async)">
+    <!-- <div class="listClothes" *ngFor="let clothe of (clothes | async)">
 
             <div class="col-lg-4 col-md-6 mb-4">
                 <div *ngIf="!(editState)" class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#"><span class="span">Brand: </span> {{clothe.data.brand}}</a>
-                        </h4>
-                        <a class="img" routerLink='{{clothe.data.imageURL}}'><img class="card-img-top" src="{{clothe.data.imageURL}}" alt=""></a>
+                    <form>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#" formControlName="brand"><span class="span">Brand: </span> {{clothe.data.brand}} </a>
+                            </h4>
+                            <a class="img" routerLink='{{clothe.data.imageURL}}'><img class="card-img-top" src="{{clothe.data.imageURL}}" alt=""></a>
 
-                        <h4 class="card-title">
-                            <a routerLink='/'><span class="span">Model: </span> {{clothe.data.model}}</a>
-                        </h4>
-                        <h5>${{clothe.data.price}}</h5>
-                        <p class="card-text">Category: {{clothe.data.type}}</p>
-                        <p class="card-text">Size in stock: {{clothe.data.size}}</p>
+                            <h4 class="card-title">
+                                <a routerLink='/'><span class="span">Model: </span> {{clothe.data.model}}</a>
+                            </h4>
+                            <h5>${{clothe.data.price}}</h5>
+                            <p class="card-text">Category: {{clothe.data.type}}</p>
+                            <p class="card-text">Size in stock: {{clothe.data.size}}</p>
 
-                        <p class="card-text">{{clothe.data.description}}</p>
+                            <p class="card-text">{{clothe.data.description}}</p>
 
-                    </div>
+                        </div>
+                    </form>
                     <div class="card-footer">
                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                     </div>
@@ -75,9 +80,9 @@
                     <button (click)="top()" class="btn btn-info my-4 btn-block">
                     TOP
                    </button>
-                </div>
+                </div> -->
 
-                <div *ngIf="editState && clothe.id" class="col-lg-4 col-md-6 mb-4">
+    <!-- <div *ngIf="editState && clothe.id" class="col-lg-4 col-md-6 mb-4">
                     <form (ngSubmit)="updateClote($event, clothe.id)">
 
 
@@ -86,26 +91,26 @@
 
                                 <a>Fill in the NEW Assortment for the <span class="clothesBord">  Clothes article!</span> </a>
                                 <p class="card-new">
-                                    <input type="text" value="{{clothe.data.brand}}" name="brand" class="card-new" aria-describedby="New brand" formControlName="newBrand">
+                                    <input type="text" name="brand" class="card-new" aria-describedby="New brand" formControlName="brand">
                                 </p>
 
                                 <p class="card-new">
-                                    <input type="text" value="{{clothe.data.model}}" name="model" class="card-new" aria-describedby="New model" formControlName="newModel">
+                                    <input type="text" name="model" class="card-new" aria-describedby="New model" formControlName="model">
                                 </p>
                                 <p class="card-new">
-                                    <input type="text" value="{{clothe.data.type}}" name="type" class="card-new" aria-describedby="Mew type" formControlName="newType">
+                                    <input type="text" name="type" class="card-new" aria-describedby="Mew type" formControlName="type">
                                 </p>
                                 <p class="card-new">
-                                    <input type="text" value="{{clothe.data.size}}" name="size" class="card-new" aria-describedby="New size" formControlName="newSize">
+                                    <input type="text" name="size" class="card-new" aria-describedby="New size" formControlName="size">
                                 </p>
                                 <p class="card-new">
-                                    <input type="text-area" value="{{clothe.data.description}}" name="description" class="card-new" aria-describedby="New description" formControlName="newDescription">
+                                    <input type="text-area" name="description" class="card-new" aria-describedby="New description" formControlName="description">
                                 </p>
                                 <p class="card-new">
-                                    <input type="text" value="${{clothe.data.price}}" name="price" class="card-new" aria-describedby="New price" formControlName="newPrice">
+                                    <input type="text" name="price" class="card-new" aria-describedby="New price" formControlName="price">
                                 </p>
                                 <p class="card-new">
-                                    <input type="text" value="{{clothe.data.imageURL}}" name="imgURL" class="card-new" aria-describedby="New imаgеURL" formControlName="newImageURL">
+                                    <input type="text" name="imgURL" class="card-new" aria-describedby="New imаgеURL" formControlName="imageURL">
                                 </p>
                                 <button (click)="updateClote($event, clothe.id)" class="btn btn-info my-4 btn-block">
                                 Update
@@ -117,6 +122,89 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div> -->
+    <!-- </div> -->
+
+    <div class="menu">
+        <div class="listClothes" *ngFor="let clothe of (clothes | async)">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <ng-container *ngIf="editState; then editMode else normalMode"></ng-container>
+                <ng-template #editMode>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <form (ngSubmit)="updateClote($event, clothe.id)">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <a>Fill in the NEW Assortment for the <span class="clothesBord"> Clothes article!</span> </a>
+                                    <p class="card-new">
+                                        <input type="text" name="brand" class="card-new" aria-describedby="New brand" formControlName="brand">
+                                    </p>
+                                    <p class="card-new">
+                                        <input type="text" name="model" class="card-new" aria-describedby="New model" formControlName="model">
+                                    </p>
+                                    <p class="card-new">
+                                        <input type="text" name="type" class="card-new" aria-describedby="Mew type" formControlName="type">
+                                    </p>
+                                    <p class="card-new">
+                                        <input type="text" name="size" class="card-new" aria-describedby="New size" formControlName="size">
+                                    </p>
+                                    <p class="card-new">
+                                        <input type="text-area" name="description" class="card-new" aria-describedby="New description" formControlName="description">
+                                    </p>
+                                    <p class="card-new">
+                                        <input type="text" name="price" class="card-new" aria-describedby="New price" formControlName="price">
+                                    </p>
+                                    <p class="card-new">
+                                        <input type="text" name="imgURL" class="card-new" aria-describedby="New imаgеURL" formControlName="imageURL">
+                                    </p>
+                                    <button (click)="updateClote($event, clothe.id)" class="btn btn-info my-4 btn-block">
+                        Update
+                      </button>
+                                    <button (click)="noEdit($event, clothe.id)" class="btn btn-info my-4 btn-block">
+                        Cancel
+                      </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </ng-template>
+                <ng-template #normalMode>
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#"><span class="span">Brand: </span> {{clothe.data.brand}}</a>
+                            </h4>
+                            <a class="img" routerLink='{{clothe.data.imageURL}}'><img class="card-img-top" src="{{clothe.data.imageURL}}" alt=""></a>
+
+                            <h4 class="card-title">
+                                <a routerLink='/'><span class="span">Model: </span> {{clothe.data.model}}</a>
+                            </h4>
+                            <h5>${{clothe.data.price}}</h5>
+                            <p class="card-text">Category: {{clothe.data.type}}</p>
+                            <p class="card-text">Size in stock: {{clothe.data.size}}</p>
+                            <p class="card-text">{{clothe.data.description}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                        <div *ngIf="isAdmin">
+                            <button [routerLink]="['/','products', 'edit', clothe.id]" class="btn btn-info my-4 btn-block">
+                  Edit
+                </button>
+                            <button (click)="deleteClothe($event, clothe.id)" class="btn btn-info my-4 btn-block">
+                  Delete
+                </button>
+                        </div>
+                        <div *ngIf="!(isAdmin)">
+                            <button *ngIf="(userService.user | async)" (click)="buyClothe($event, clothe.id)" class="btn btn-info my-4 btn-block">
+                  BUY
+                </button>
+                        </div>
+                        <button (click)="top()" class="btn btn-info my-4 btn-block">
+                  TOP
+                </button>
+                    </div>
+                </ng-template>
             </div>
         </div>
     </div>

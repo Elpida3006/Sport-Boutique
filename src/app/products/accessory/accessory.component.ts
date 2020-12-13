@@ -13,18 +13,21 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./accessory.component.css']
 })
 export class AccessoryComponent implements OnInit {
+  isAdmin: boolean = false;
+
   accessory: Observable<any>
   editState: boolean = false;
   form: FormGroup;
   isLoading = false;
   error: string;
-  newBrand : string;
-      newDescription :string;
-      newModel : string;
-      newImageURL : string;
-      newSize : string;
-      newType : string;
-      newPrice: string;
+
+  brand: string;
+  description: string;
+  model: string; 
+  imageURL: string;
+  size: string;
+  type: string;
+  price: string;
   constructor(
     public firebaseService: ProductsService,
     public db: AngularFirestore,
@@ -35,14 +38,16 @@ export class AccessoryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isAdmin = this.userService.admin;
     this.form = this.fb.group({ 
-      newBrand : [''],
-      newDescription : [''],
-      newModel : [''],
-      newImageURL : [''],
-      newSize : [''],
-      newType : [''],
-      newPrice: ['']
+      brand : [''],
+      description : [''],
+      model : [''],
+      imageURL : [''],
+      size : [''],
+      type : [''],
+      price: ['']
+      
       })  
    this.accessory = this.firebaseService.getAccessories()
    .snapshotChanges()
@@ -66,9 +71,11 @@ export class AccessoryComponent implements OnInit {
     }
 
     editAccessory = (event, itemEdit) => {
-      this.editState = true;
+     
     // const itemEdit = id;
       this.firebaseService.editAccessories(itemEdit)
+      console.log(itemEdit)
+      this.editState = true;
      
      
     }
@@ -76,8 +83,9 @@ export class AccessoryComponent implements OnInit {
       this.editState = false;
     }
     updateAccessory= (event, id) => {
-      const { newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} = this.form.value 
-        this.firebaseService.updateAccessories({id,  newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} )
+      console.log(id)
+      const { brand, description, model, type, imageURL, size, price} = this.form.value 
+        this.firebaseService.updateAccessories(id, { brand, description, model, type, imageURL, size, price} )
           .then((res) => {
           this.router.navigate([`products/accessory`])
       this.editState = false;

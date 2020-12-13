@@ -1,1 +1,57 @@
-<p>promotion works!</p>
+<div class="container">
+
+
+
+
+    <form class="text-center border border-light p-5 rounded " [formGroup]="form" (ngSubmit)=" onSubmit() ">
+        <p class="clothes">Fill in the assortment for the <span class="clothesBord">  Accessory section!</span> </p>
+
+        <p class="field field-icon">
+            <label for="brand"><span><i class="fas fa-envelope"></i></span></label>
+            <input type="text" name="brand" id="brand" class="form-control mb-4" placeholder="Brand" formControlName="brand">
+        </p>
+
+        <p class="field field-icon">
+            <label for="model"><span><i class="fas fa-envelope"></i></span></label>
+            <input type="text" name="model" id="model" class="form-control mb-4" placeholder="Model" Products aria-describedby="model" formControlName="model">
+        </p>
+        <p class="field field-icon">
+            <label for="type"><span><i class="fas fa-envelope"></i></span></label>
+            <input type="text" name="type" id="type" class="form-control mb-4" placeholder="Type article" aria-describedby="type" formControlName="type">
+        </p>
+        <p class="field field-icon">
+            <label for="size"><span><i class="fas fa-envelope"></i></span></label>
+            <input type="text" name="size" id="size" class="form-control mb-4" placeholder="Size" aria-describedby="size" formControlName="size">
+        </p>
+        <p class="field field-icon">
+            <label for="description"><span><i class="fas fa-envelope"></i></span></label>
+            <input type="text" name="description" id="description" class="form-control mb-4" placeholder="Description" aria-describedby="description" formControlName="description">
+        </p>
+        <p class="field field-icon">
+            <label for="price"><span><i class="fas fa-envelope"></i></span></label>
+            <input type="text" name="price" id="price" class="form-control mb-4" placeholder="Price" aria-describedby="price" formControlName="price">
+        </p>
+        <p class="field field-icon">
+            <label for="imgURL"><span><i class="fas fa-envelope"></i></span></label>
+            <input type="text" name="imgURL" id="size" class="form-control mb-4" placeholder="http://..." aria-describedby="imаgеURL" formControlName="imageURL">
+        </p>
+        <p class="field field-icon">
+            <label for="percent"><span><i class="fas fa-envelope"></i></span></label>
+            <input type="text" name="pripercentce" id="percent" class="form-control mb-4" placeholder="Percent" aria-describedby="price" formControlName="percent">
+        </p>
+
+
+        <button class="btn btn-info my-4 btn-block">
+       Create Accessory
+      </button>
+        <div>
+        </div>
+
+        <p class="back">
+
+            <a routerLink="/home">Back</a>
+        </p>
+    </form>
+
+
+</div>

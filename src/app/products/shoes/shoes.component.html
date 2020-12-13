@@ -1,34 +1,91 @@
-<p>shoes works!</p>
-<div class="menu">
+<div class="container">
 
-    <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-            <div class="card-body">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/400x400" alt=""></a>
+    <div class="shopProducts">
 
-                <h4 class="card-title">
-                    <a href="#">Item Three</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+        <div class="list-articles">
+            <h5 class="my-4">Our Articles and the best suggestion</h5>
+            <a routerLink="/products/clothes" class="list-group-item">Clothes</a>
+            <a routerLink="/products/shoes" class="list-group-item">Shoes</a>
+            <a routerLink="/products/accessory" class="list-group-item">Accessory</a>
+            <!-- <li class="nav-item" *ngIf="isLogged ">
+                <a routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
+            </li> -->
+            <a *ngIf="(userService.user | async)" routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
+            <!-- admin routes -->
+            <div *ngIf="isAdmin">
+                <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
+                <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>
+                <a routerLink="/createProducts/accessory" class="admin-group-item">Create Accessory</a>
+                <a routerLink="/createProducts/promotion" class="admin-group-item">Create Accessory</a>
             </div>
-            <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-            </div>
+
         </div>
-        <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/400x400" alt=""></a>
-            <div class="card-body">
-                <h4 class="card-title">
-                    <a href="#">Item Three</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+        <section class="core">
+            <div class="image-bord">
+
+
+                <div class="carousel-item active">
+                    <img class="d-block img-fluid" src="https://images.footlocker.com/content/dam/final/champs/site/homepage/20201130-hp-jordan-retro-1-hi-blk-gd-and-aj1-mid-gold-bk-launch-banner-m-1up.jpg" alt=" First slide ">
+
+                </div>
             </div>
-            <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+        </section>
+
+    </div>
+
+    <div class="menu">
+
+        <div class="listClothes" *ngFor="let shoe of (shoes | async)">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <ng-template #normalMode>
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#"><span class="span">Brand: </span> {{shoe.data.brand}}</a>
+                            </h4>
+                            <a class="img" routerLink='{{shoe.data.imageURL}}'><img class="card-img-top" src="{{shoe.data.imageURL}}" alt=""></a>
+
+                            <h4 class="card-title">
+                                <a routerLink='/'><span class="span">Model: </span> {{shoe.data.model}}</a>
+                            </h4>
+                            <h5>${{shoe.data.price}}</h5>
+                            <p class="card-text">Category: {{shoe.data.type}}</p>
+                            <p class="card-text">Size in stock: {{shoe.data.size}}</p>
+
+                            <p class="card-text">{{shoe.data.description}}</p>
+
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                        <div *ngIf="isAdmin">
+                            <button (click)="editShoe($event, shoe.id)" class="btn btn-info my-4 btn-block">
+                         Edit
+                       </button>
+                            <button (click)="deleteShoe($event, shoe.id)" class="btn btn-info my-4 btn-block">
+                        Delete
+                       </button>
+                        </div>
+                        <div *ngIf="!(isAdmin)">
+                            <button *ngIf="(userService.user | async )" (click)="buyShoe($event, shoe.id)" class="btn btn-info my-4 btn-block">
+                        BUY
+                       </button>
+                        </div>
+                        <button (click)="top()" class="btn btn-info my-4 btn-block">
+                        TOP
+                       </button>
+                    </div>
+                </ng-template>
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
 
 </div>

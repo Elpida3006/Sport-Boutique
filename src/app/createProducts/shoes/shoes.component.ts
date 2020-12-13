@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateProductsService } from '../create-products.service';
@@ -10,6 +11,9 @@ import { CreateProductsService } from '../create-products.service';
 })
 export class ShoesComponent implements OnInit {
   form: FormGroup;
+  isLoading = false;
+  error: string;
+
   brand: string;
    description: string;
     model: string; 
@@ -20,13 +24,31 @@ export class ShoesComponent implements OnInit {
   constructor(
      private router: Router,
     public createProductService: CreateProductsService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder, 
+    public db: AngularFirestore) { }
 
   ngOnInit()  {
-    this.form = this.fb.group({   })  
+    this.form = this.fb.group({ 
+      brand : [''],
+      description : [''],
+      model : [''],
+      imageURL : [''],
+      size : [''],
+      type : [''],
+      price: ['']
+      })  
   }
-  createShoes() {
-    const {brand, description, model, type, imageURL, size} = this.form.value;
-this.router.navigate([`products/shoes`]);
-  }
+  onSubmit() {
+   
+    const {id, brand, description, model, type, imageURL, size, price} = this.form.value;
+    this.createProductService.createShoes({id, brand, description, model, type, imageURL, size, price})
+    .then(
+      (res) => {
+        // this.resetFields();
+        this.router.navigate([`products/shoes`]) 
+       })
+    
+      } 
+
 }
+  

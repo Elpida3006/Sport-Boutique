@@ -1,2 +1,87 @@
-<p>promotion works!</p>
-<h1>Works</h1>
+<div class="container">
+    <div class="shopProducts">
+
+        <div class="list-articles">
+            <h5 class="my-4">Our Articles and the best suggestion</h5>
+            <a routerLink="/products/clothes" class="list-group-item">Clothes</a>
+            <a routerLink="/products/shoes" class="list-group-item">Shoes</a>
+            <a routerLink="/products/accessory" class="list-group-item">Accessory</a>
+            <!-- <li class="nav-item" *ngIf="isLogged ">
+                <a routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
+            </li> -->
+            <a *ngIf="(userService.user | async)" routerLink="/products/promotion" class="list-group-item">Promotion and secrets offers</a>
+            <!-- admin routes -->
+            <div *ngIf="isAdmin">
+                <a routerLink="/createProducts/clothes" class="admin-group-item">Create Clothes</a>
+                <a routerLink="/createProducts/shoes" class="admin-group-item">Create Shoes</a>
+                <a routerLink="/createProducts/accessory" class="admin-group-item">Create Accessory</a>
+                <a routerLink="/createProducts/promotion" class="admin-group-item">Create Accessory</a>
+
+            </div>
+
+        </div>
+        <section class="core">
+            <div class="image-bord">
+
+
+                <div class="carousel-item active">
+                    <img class="d-block img-fluid" src="https://images.footlocker.com/content/dam/final/champs/site/homepage/20201130-hp-jordan-retro-1-hi-blk-gd-and-aj1-mid-gold-bk-launch-banner-m-1up.jpg" alt=" First slide ">
+
+
+
+                </div>
+
+
+
+            </div>
+        </section>
+    </div>
+
+    <div class="menu">
+
+        <div class="listClothes" *ngFor="let pro of (promotion | async)">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <ng-template #normalMode>
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#"><span class="span">Brand: </span> {{pro.data.brand}}</a>
+                            </h4>
+                            <a class="img" routerLink='{{pro.data.imageURL}}'><img class="card-img-top" src="{{pro.data.imageURL}}" alt=""></a>
+
+                            <h4 class="card-title">
+                                <a routerLink='/'><span class="span">Model: </span> {{pro.data.model}}</a>
+                            </h4>
+                            <h5>${{pro.data.price}}</h5>
+                            <p class="card-text">Category: {{pro.data.type}}</p>
+                            <p class="card-text">Size in stock: {{pro.data.size}}</p>
+                            <p class="card-text">Category: {{pro.data.percent}}</p>
+                            <p class="card-text">{{pro.data.description}}</p>
+
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                        <div *ngIf="isAdmin">
+                            <button (click)="editPromo($event, pro.id)" class="btn btn-info my-4 btn-block">
+                     Edit
+                   </button>
+                            <button (click)="deletePromo($event, pro.id)" class="btn btn-info my-4 btn-block">
+                    Delete
+                   </button>
+                        </div>
+                        <div *ngIf="!(isAdmin)">
+                            <button *ngIf="(userService.user | async )" (click)="buyPromotion($event, pro.id)" class="btn btn-info my-4 btn-block">
+                    BUY
+                   </button>
+                        </div>
+                        <button (click)="top()" class="btn btn-info my-4 btn-block">
+                    TOP
+                   </button>
+                    </div>
+                </ng-template>
+
+            </div>
+        </div>
+    </div>

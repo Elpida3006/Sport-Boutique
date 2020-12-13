@@ -40,5 +40,32 @@ createAccessory(value) {
       price: value.price
   });
 }
+createShoes(value){
+  console.log(value);
+ return this.db.collection('shoes').add({
+  brand: value.brand,
+    description: value.description,
+     model: value.model,
+     imageURL: value.imageURL,
+      size: value.size,
+      type: value.type,
+      price: value.price
+  });
 
+}
+
+createPromotions(value){
+  console.log(value);
+ return this.db.collection('promotion').add({
+  brand: value.brand,
+    description: value.description,
+     model: value.model,
+     imageURL: value.imageURL,
+      size: value.size,
+      type: value.type,
+      price: value.price,
+      percent: value.percent,
+  });
+
+}
 }

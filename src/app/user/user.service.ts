@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from '@firebase/auth/dist/auth';
-// import { Router } from  "@angular/router";
+import { Router } from  "@angular/router";
 // import auth from "../../../node_modules/firebase"
 
 // import { User } from  'firebase';
@@ -18,12 +18,13 @@ export class UserService {
   user: Observable<firebase.User>;
 
   isLogged = false;
-isAdmin = false;
-  constructor(private firebaseAuth: AngularFireAuth,  private storage: PlatformStorageService) {
+  admin = false;
+ 
+  constructor(private firebaseAuth: AngularFireAuth,  private storage: PlatformStorageService,  router: Router) {
     this.user = firebaseAuth.authState;
 
     this.isLogged = this.storage.getItem('isLogged');
-    this.isAdmin = this.storage.getItem('isAdmin');
+    //this.isAdmin = this.storage.getItem('isAdmin'); 
   }
 
   register(email: string, password: string) {
@@ -42,7 +43,7 @@ isAdmin = false;
 
   login(email: string, password: string) {
     if ( email === `nadq1234@abv.bg`&& password === 'nadq1234nadq1234') {
-      this.isAdmin = true;
+      this.admin = true;
     }
     this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
@@ -58,9 +59,14 @@ isAdmin = false;
  
 
   logout() {
-    this.firebaseAuth.signOut();
+    this.firebaseAuth.signOut().then( (res) => {
+      // this.router.navigate(['cover'])
+     } )
+   
   }
-
+  get isAdmin() {
+    return this.isAdmin;
+  }
 } 
 // get isRegister() {
 //     return this.isRegister

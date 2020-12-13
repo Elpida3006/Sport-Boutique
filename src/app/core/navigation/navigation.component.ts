@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { filter, throttleTime } from 'rxjs/operators';
 import { UserService } from '../../user/user.service';
 
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -22,7 +23,7 @@ export class NavigationComponent implements OnDestroy {
   constructor(
     title: Title,
     public userService: UserService,
-    router: Router
+    public router: Router
   ) {
     this.subscription = router.events.pipe(filter(e => e instanceof ActivationEnd), throttleTime(0)).subscribe((e: ActivationEnd) => {
       title.setTitle(e.snapshot.data?.title);
@@ -30,8 +31,11 @@ export class NavigationComponent implements OnDestroy {
     });
   }
 
-  logoutHandler(): void {
-    this.userService.logout();
+  logoutHandler(){
+   
+    this.userService.logout()
+    
+
   }
 
   ngOnDestroy(): void {

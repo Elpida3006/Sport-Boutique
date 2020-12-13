@@ -4,6 +4,7 @@ import { ClothesComponent } from './clothes/clothes.component';
 import { ShoesComponent } from './shoes/shoes.component';
 import { Router } from  "@angular/router";
 import { PromotionComponent } from './promotion/promotion.component';
+import { EditClotheComponent } from './edit-clothe/edit-clothe.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,14 @@ const routes: Routes = [
               isLogged: false,
               title: 'view promotion'
             }
-          },
+          },{
+            path: 'edit/:id', 
+            component: EditClotheComponent,
+            data: {
+              isLogged: false,
+              title: 'edit clothe'
+            }
+          }
         
        
       ]

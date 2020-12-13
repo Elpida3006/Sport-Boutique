@@ -4,7 +4,7 @@ import { ProductsService } from '../products.service';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { UserService } from 'src/app/user/user.service';
 import { Title } from '@angular/platform-browser';
 // import {Product} from '../products.service'
@@ -15,6 +15,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./clothes.component.css']
 })
 export class ClothesComponent implements OnInit {
+  isAdmin: boolean = false;
   clothes: Observable<any>
   editState: boolean = false;
   // clothes: Observable<Product[]>
@@ -24,13 +25,13 @@ export class ClothesComponent implements OnInit {
   isLoading = false;
   error: string;
 
-  newBrand : string;
-      newDescription :string;
-      newModel : string;
-      newImageURL : string;
-      newSize : string;
-      newType : string;
-      newPrice: string;
+  brand: string;
+  description: string;
+  model: string; 
+  imageURL: string;
+  size: string;
+  type: string;
+  price: string;
   constructor( 
     public firebaseService: ProductsService,
     public db: AngularFirestore,
@@ -42,14 +43,16 @@ export class ClothesComponent implements OnInit {
   ) {
    }
   ngOnInit() { 
+
+    this.isAdmin = this.userService.admin;
     this.form = this.fb.group({ 
-      newBrand : [''],
-      newDescription : [''],
-      newModel : [''],
-      newImageURL : [''],
-      newSize : [''],
-      newType : [''],
-      newPrice: ['']
+      brand : [''],
+      description : [''],
+      model : [''],
+      imageURL : [''],
+      size : [''],
+      type : [''],
+      price: ['']
       })  
    this.clothes = this.firebaseService.getClothes()
    .snapshotChanges()
@@ -69,30 +72,34 @@ export class ClothesComponent implements OnInit {
       })
       .catch((err) => 
           console.log(`Don't delete id`))
-  
+    }
+ 
+    editClothe = (event, id) => {
+      // console.log(id);
+      this.editState = true;
+      const clothe = this.firebaseService.editClothes(id).ref.get().then((doc) => {
+        if(doc.exists) {
+         const currentClothe = doc.data();
+          this.form.patchValue(currentClothe) 
+        }
+
+      })
+     
+          
     }
 
-    editClothe = (event, itemEdit) => {
-      this.editState = true;
-    // const itemEdit = id;
-      this.firebaseService.editClothes(itemEdit)
-     
-     
-    }
-    noEdit = (event, id) => {
-      this.editState = false;
-    }
-    updateClote= (event, id) => {
-      const { newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} = this.form.value 
-        this.firebaseService.updateClothes({id,  newBrand, newDescription, newModel, newType, newImageURL, newSize, newPrice} )
-          .then((res) => {
-          this.router.navigate([`products/clothes`])
-      this.editState = false;
-      })
-    }
+  
+    // updateClote= (event, id) => {
+    //   //db.collection("users").doc(doc.id).update({foo: "bar"});
+    //   console.log(id)
+    //   const { brand, description, model, type, imageURL, size, price} = this.form.value 
+    //     this.firebaseService.updateClothes(id, { brand, description, model, type, imageURL, size, price} )          .then((res) => {
+    //       this.router.navigate([`products/clothes`])
+    //   this.editState = false;
+    //   })
+    // }
 
     buyClothe = (event, id) => {
-//da go wzema id ot item-a i da redirektna kym buy stranica
 this.router.navigate(['buy'])
     }
     top() {

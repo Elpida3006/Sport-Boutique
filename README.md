@@ -1,5 +1,30 @@
 # ShopButique
 
+The project is the development of an online sporting goods store.
+It is built on the basis of engular CLI, and for database / authentication and user registration a firebase / Angular-firestore is used.
+
+As methods of engular are applied the use of:
+-components, modules
+- routing
+-reactive forms
+- attribute and structural directives.
+
+As a functionality, for the online store are used methods for registration and authentication of the user, 
+guards for the administrator, 
+as well as the main CRUD operations.
+
+The site has 3 views - for unregistered, registered and administrator.
+The unregistered user can view the items without the possibility of purchasing through the online platform, except through the left contact form.
+
+Registration user can purchase items.
+The administrator has access to create, edit and delete items.
+
+To start the project you need a browser, an editor and the command ng serve / ng s.
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
 ## Development server

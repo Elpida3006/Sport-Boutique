@@ -68,7 +68,6 @@ export class ShoesComponent implements OnInit {
 
     
     buyShoe= (event, id) => {
-      //da go wzema id ot item-a i da redirektna kym buy stranica
       this.router.navigate(['buy'])
     }
     top() {
@@ -76,7 +75,7 @@ export class ShoesComponent implements OnInit {
           }
 
 
-          
+
          editShoe(){}
   }
 

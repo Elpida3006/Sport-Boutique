@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { map, tap } from 'rxjs/operators';
 import { UserService } from 'src/app/user/user.service';
 import { Title } from '@angular/platform-browser';
-// import {Product} from '../products.service'
 
 @Component({
   selector: 'app-clothes',
@@ -16,10 +15,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class ClothesComponent implements OnInit {
   isAdmin: boolean = false;
+
   clothes: Observable<any>
   editState: boolean = false;
-  // clothes: Observable<Product[]>
-
 
   form: FormGroup;
   isLoading = false;
@@ -32,6 +30,7 @@ export class ClothesComponent implements OnInit {
   size: string;
   type: string;
   price: string;
+
   constructor( 
     public firebaseService: ProductsService,
     public db: AngularFirestore,
@@ -40,8 +39,8 @@ export class ClothesComponent implements OnInit {
       title: Title,
     public userService: UserService,
    
-  ) {
-   }
+  ) { }
+
   ngOnInit() { 
 
     this.isAdmin = this.userService.admin;
@@ -74,30 +73,21 @@ export class ClothesComponent implements OnInit {
           console.log(`Don't delete id`))
     }
  
-    editClothe = (event, id) => {
-      // console.log(id);
-      this.editState = true;
-      const clothe = this.firebaseService.editClothes(id).ref.get().then((doc) => {
-        if(doc.exists) {
-         const currentClothe = doc.data();
-          this.form.patchValue(currentClothe) 
-        }
+    // editClothe = (event, id) => {
+    //   // console.log(id);
+    //   this.editState = true;
+    //   const clothe = this.firebaseService.editClothes(id)
+    //   .ref.get().then((doc) => {
+    //     if(doc.exists) {
+    //      const currentClothe = doc.data();
+    //       this.form.patchValue(currentClothe) 
+    //     }
 
-      })
+    //   })
      
           
-    }
-
-  
-    // updateClote= (event, id) => {
-    //   //db.collection("users").doc(doc.id).update({foo: "bar"});
-    //   console.log(id)
-    //   const { brand, description, model, type, imageURL, size, price} = this.form.value 
-    //     this.firebaseService.updateClothes(id, { brand, description, model, type, imageURL, size, price} )          .then((res) => {
-    //       this.router.navigate([`products/clothes`])
-    //   this.editState = false;
-    //   })
     // }
+
 
     buyClothe = (event, id) => {
 this.router.navigate(['buy'])

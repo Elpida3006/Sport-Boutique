@@ -5,6 +5,9 @@ import { ShoesComponent } from './shoes/shoes.component';
 import { Router } from  "@angular/router";
 import { PromotionComponent } from './promotion/promotion.component';
 import { EditClotheComponent } from './edit-clothe/edit-clothe.component';
+import { EditPromotionComponent } from './edit-promotion/edit-promotion.component';
+import { EditAccessoryComponent } from './edit-accessory/edit-accessory.component';
+import { EditShoesComponent } from './edit-shoes/edit-shoes.component';
 
 
 const routes: Routes = [
@@ -52,6 +55,27 @@ const routes: Routes = [
             data: {
               isLogged: false,
               title: 'edit clothe'
+            }
+          }, {
+            path: 'edit/:id', 
+            component: EditPromotionComponent,
+            data: {
+              isLogged: false,
+              title: 'edit promotion'
+            }
+          }, {
+            path: 'edit/:id', 
+            component: EditAccessoryComponent,
+            data: {
+              isLogged: false,
+              title: 'edit accessory'
+            }
+          }, {
+            path: 'edit/:id', 
+            component: EditShoesComponent,
+            data: {
+              isLogged: false,
+              title: 'edit shoe'
             }
           }
         

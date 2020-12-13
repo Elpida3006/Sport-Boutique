@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { UserService } from 'src/app/user/user.service';
 import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-accessory',
   templateUrl: './accessory.component.html',
@@ -17,6 +18,7 @@ export class AccessoryComponent implements OnInit {
 
   accessory: Observable<any>
   editState: boolean = false;
+
   form: FormGroup;
   isLoading = false;
   error: string;
@@ -28,6 +30,7 @@ export class AccessoryComponent implements OnInit {
   size: string;
   type: string;
   price: string;
+
   constructor(
     public firebaseService: ProductsService,
     public db: AngularFirestore,
@@ -70,32 +73,38 @@ export class AccessoryComponent implements OnInit {
   
     }
 
-    editAccessory = (event, itemEdit) => {
+    // editAccessory = (event, id) => {
      
-    // const itemEdit = id;
-      this.firebaseService.editAccessories(itemEdit)
-      console.log(itemEdit)
-      this.editState = true;
+    //   this.editState = true;
+    //   const accessory = this.firebaseService.editAccessories(id)
+    //   .ref.get().then((doc) => {
+    //     if(doc.exists) {
+    //      const currentAccessory = doc.data();
+    //       this.form.patchValue(currentAccessory) 
+    //     }
+
+    //   })
      
      
-    }
+     
+    // }
     noEdit = (event, id) => {
       this.editState = false;
     }
-    updateAccessory= (event, id) => {
-      console.log(id)
-      const { brand, description, model, type, imageURL, size, price} = this.form.value 
-        this.firebaseService.updateAccessories(id, { brand, description, model, type, imageURL, size, price} )
-          .then((res) => {
-          this.router.navigate([`products/accessory`])
-      this.editState = false;
-      })
-    }
+    // updateAccessory= (event, id) => {
+    //   console.log(id)
+    //   const { brand, description, model, type, imageURL, size, price} = this.form.value 
+    //     this.firebaseService.updateAccessories(id, { brand, description, model, type, imageURL, size, price} )
+    //       .then((res) => {
+    //       this.router.navigate([`products/accessory`])
+    //   this.editState = false;
+    //   })
+    // }
 
     buyAccessory = (event, id) => {
-//da go wzema id ot item-a i da redirektna kym buy stranica
 this.router.navigate(['buy'])
     }
+
     top() {
       this.router.navigate([`home`])
     }

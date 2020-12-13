@@ -31,7 +31,8 @@ export class EditShoesComponent implements OnInit {
     this.route.params.subscribe(params => {
       const { id } = params;
       this.shoeId = id;
-      this.firebaseService.editShoes(id).ref.get().then((doc) => {
+      this.firebaseService.editShoes(id).ref.get()
+      .then((doc) => {
          if(doc.exists) {
           const currentShoe = doc.data();
            this.form.patchValue(currentShoe) 

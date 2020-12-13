@@ -42,7 +42,8 @@
         <div class="listClothes" *ngFor="let acc of (accessory | async)">
 
             <div class="col-lg-4 col-md-6 mb-4">
-                <div *ngIf="!(editState)" class="card h-100">
+                <!-- <ng-template #normalMode> -->
+                <div class="card h-100">
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#"><span class="span">Brand: </span> {{acc.data.brand}}</a>
@@ -50,7 +51,7 @@
                         <a class="img" routerLink='{{acc.data.imageURL}}'><img class="card-img-top" src="{{acc.data.imageURL}}" alt=""></a>
 
                         <h4 class="card-title">
-                            <a routerLink='/'><span class="span">Model: </span> {{acc.data.model}}</a>
+                            <a routerLink='/#'><span class="span">Model: </span> {{acc.data.model}}</a>
                         </h4>
                         <h5>${{acc.data.price}}</h5>
                         <p class="card-text">Category: {{acc.data.type}}</p>
@@ -63,7 +64,7 @@
                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                     </div>
                     <div *ngIf="isAdmin">
-                        <button (click)="editAccessory($event, acc.id)" class="btn btn-info my-4 btn-block">
+                        <button [routerLink]="['/','products', 'edit', acc.id]" class="btn btn-info my-4 btn-block">
                      Edit
                    </button>
                         <button (click)="deleteAccessory($event, acc.id)" class="btn btn-info my-4 btn-block">
@@ -79,7 +80,7 @@
                     TOP
                    </button>
                 </div>
-
+                <!-- </ng-template> -->
 
             </div>
         </div>

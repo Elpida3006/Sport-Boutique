@@ -1,1 +1,36 @@
 <p>edit-accessory works!</p>
+<div class="col-lg-4 col-md-6 mb-4">
+    <form (ngSubmit)="updateAccessory()" [formGroup]="form">
+        <div class="card h-100">
+            <div class="card-body">
+                <a>Fill in the NEW Assortment for the  Accessory article!</a>
+                <p class="card-new">
+                    <input type="text" formControlName="brand">
+
+                </p>
+                <p class="card-new">
+                    <input type="text" name="model" class="card-new" aria-describedby="New model" formControlName="model">
+                </p>
+                <p class="card-new">
+                    <input type="text" name="type" class="card-new" aria-describedby="Mew type" formControlName="type">
+                </p>
+                <p class="card-new">
+                    <input type="text" name="size" class="card-new" aria-describedby="New size" formControlName="size">
+                </p>
+                <p class="card-new">
+                    <input type="text-area" name="description" class="card-new" aria-describedby="New description" formControlName="description">
+                </p>
+                <p class="card-new">
+                    <input type="text" name="price" class="card-new" aria-describedby="New price" formControlName="price">
+                </p>
+                <p class="card-new">
+                    <input type="text" name="imgURL" class="card-new" aria-describedby="New imаgеURL" formControlName="imageURL">
+                </p>
+                <button class="btn btn-info my-4 btn-block">Update</button>
+                <button (click)="noEdit($event, accessory.id)" class="btn btn-info my-4 btn-block">
+    Cancel
+  </button>
+            </div>
+        </div>
+    </form>
+</div>

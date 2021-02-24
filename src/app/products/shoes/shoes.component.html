@@ -49,7 +49,7 @@
                         <h4 class="card-title">
                             <a routerLink='/'><span class="span">Model: </span> {{shoe.data.model}}</a>
                         </h4>
-                        <h5>${{shoe.data.price}}</h5>
+                        <h5>Price: $ {{shoe.data.price}}</h5>
                         <p class="card-text">Category: {{shoe.data.type}}</p>
                         <p class="card-text">Size in stock: {{shoe.data.size}}</p>
 
@@ -60,7 +60,7 @@
                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                     </div>
                     <div *ngIf="isAdmin">
-                        <button [routerLink]="['/','products', 'edit', shoe.id]" class="btn btn-info my-4 btn-block">
+                        <button [routerLink]="['/','products', 'editShoes', shoe.id]" class="btn btn-info my-4 btn-block">
                          Edit
                        </button>
                         <button (click)="deleteShoe($event, shoe.id)" class="btn btn-info my-4 btn-block">

@@ -14,10 +14,10 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./clothes.component.css']
 })
 export class ClothesComponent implements OnInit {
-  isAdmin: boolean = false;
+  isAdmin: boolean;
 
   clothes: Observable<any>
-  editState: boolean = false;
+  editState: boolean;
 
   form: FormGroup;
   isLoading = false;

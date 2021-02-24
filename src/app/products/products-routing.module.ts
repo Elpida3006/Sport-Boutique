@@ -21,7 +21,7 @@ const routes: Routes = [
           path: 'accessory',
           component: AccessoryComponent,
           data: {
-            isLogged: false,
+            isLogged: true,
             noNavigation: true,
             title: 'view accessory'
           },
@@ -30,7 +30,7 @@ const routes: Routes = [
           path: 'clothes',
           component: ClothesComponent,
           data: {
-            isLogged: false,
+            isLogged: true,
             title: 'view clothes'
           }
         },
@@ -38,7 +38,7 @@ const routes: Routes = [
             path: 'shoes',
             component: ShoesComponent,
             data: {
-              isLogged: false,
+              isLogged: true,
               title: 'view shoes'
             }
           },
@@ -46,35 +46,35 @@ const routes: Routes = [
             path: 'promotion',
             component: PromotionComponent,
             data: {
-              isLogged: false,
+              // isLogged: false,
               title: 'view promotion'
             }
           },{
             path: 'edit/:id', 
             component: EditClotheComponent,
             data: {
-              isLogged: false,
+              // isLogged: false,
               title: 'edit clothe'
             }
           }, {
-            path: 'edit/:id', 
+            path: 'editPromo/:id', 
             component: EditPromotionComponent,
             data: {
-              isLogged: false,
+              // isLogged: false,
               title: 'edit promotion'
             }
           }, {
-            path: 'edit/:id', 
+            path: 'editAcc/:id', 
             component: EditAccessoryComponent,
             data: {
-              isLogged: false,
+              // isLogged: false,
               title: 'edit accessory'
             }
           }, {
-            path: 'edit/:id', 
+            path: 'editShoes/:id', 
             component: EditShoesComponent,
             data: {
-              isLogged: false,
+              // isLogged: false,
               title: 'edit shoe'
             }
           }

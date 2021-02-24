@@ -1,4 +1,4 @@
-<p>edit-accessory works!</p>
+<!-- <p>edit-accessory works!</p> -->
 <div class="col-lg-4 col-md-6 mb-4">
     <form (ngSubmit)="updateAccessory()" [formGroup]="form">
         <div class="card h-100">
@@ -27,7 +27,7 @@
                     <input type="text" name="imgURL" class="card-new" aria-describedby="New imаgеURL" formControlName="imageURL">
                 </p>
                 <button class="btn btn-info my-4 btn-block">Update</button>
-                <button (click)="noEdit($event, accessory.id)" class="btn btn-info my-4 btn-block">
+                <button (click)="noEdit($event, acc.id)" class="btn btn-info my-4 btn-block">
     Cancel
   </button>
             </div>

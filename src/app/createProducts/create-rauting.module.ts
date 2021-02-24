@@ -16,7 +16,8 @@ const routes: Routes = [
           path: 'accessory',
           component: AccessoryComponent,
           data: {
-            isLogged: false,
+            isLogged: true,
+            isAdmin: true,
             noNavigation: true,
             title: 'create accessory'
           },
@@ -25,7 +26,9 @@ const routes: Routes = [
           path: 'clothes',
           component: ClothesComponent,
           data: {
-            isLogged: false,
+            isLogged: true,
+            isAdmin: true,
+
             title: 'create clothes'
           }
         },
@@ -33,7 +36,9 @@ const routes: Routes = [
             path: 'shoes',
             component: ShoesComponent,
             data: {
-              isLogged: false,
+              isLogged: true,
+              isAdmin: true,
+
               title: 'create shoes'
             }
           },
@@ -41,7 +46,9 @@ const routes: Routes = [
             path: 'promotion',
             component: PromotionComponent,
             data: {
-              isLogged: false,
+              isLogged: true,
+              isAdmin: true,
+
               title: 'create promotion'
             }
           },

@@ -47,7 +47,8 @@ get f() {
 updatePromo(){
  
      const { brand, percent, description, model, type, imageURL, size, price} = this.form.value 
-    this.firebaseService.updatePromotons(this.promoId, { brand, percent, description, model, type, imageURL, size, price} )          .then((res) => {
+    this.firebaseService.updatePromotons(this.promoId, 
+      { brand, percent, description, model, type, imageURL, size, price} )          .then((res) => {
       this.router.navigate([`products/shoes`])
     })
 }

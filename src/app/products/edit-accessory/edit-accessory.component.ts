@@ -10,7 +10,7 @@ import { ProductsService } from '../products.service';
 })
 export class EditAccessoryComponent implements OnInit {
   form: FormGroup;
-  accessory:any;
+  acc:any;
   accessoryId:string;
 
   constructor(private fb: FormBuilder,

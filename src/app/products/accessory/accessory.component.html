@@ -51,7 +51,7 @@
                         <a class="img" routerLink='{{acc.data.imageURL}}'><img class="card-img-top" src="{{acc.data.imageURL}}" alt=""></a>
 
                         <h4 class="card-title">
-                            <a routerLink='/#'><span class="span">Model: </span> {{acc.data.model}}</a>
+                            <a routerLink='/'><span class="span">Model: </span> {{acc.data.model}}</a>
                         </h4>
                         <h5>${{acc.data.price}}</h5>
                         <p class="card-text">Category: {{acc.data.type}}</p>
@@ -64,7 +64,7 @@
                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                     </div>
                     <div *ngIf="isAdmin">
-                        <button [routerLink]="['/','products', 'edit', acc.id]" class="btn btn-info my-4 btn-block">
+                        <button [routerLink]="['/','products', 'editAcc', acc.id]" class="btn btn-info my-4 btn-block">
                      Edit
                    </button>
                         <button (click)="deleteAccessory($event, acc.id)" class="btn btn-info my-4 btn-block">

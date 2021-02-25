@@ -1,4 +1,4 @@
-  # ShopButique
+  # SportButique
 
   The project is the development of an online sporting goods store.
   
